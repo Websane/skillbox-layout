@@ -1,5 +1,25 @@
-//dropdown
+//отмена фокуса при клике
+let mouseDown = false;
 
+const headerLink = document.querySelectorAll('.header__link');
+const headerEntry = document.querySelectorAll('.header__entry');
+const dropdownsLink = document.querySelectorAll('.dropdowns__link');
+
+function focusOff(el) {
+    el.addEventListener('mousedown', () => mouseDown = true);
+    el.addEventListener('mouseup', () => mouseDown = false);
+    el.addEventListener('focus', () => {
+        if (mouseDown) {
+        el.blur();
+        }
+    });
+}
+
+headerLink.forEach(el => focusOff(el));
+headerEntry.forEach(el => focusOff(el));
+dropdownsLink.forEach(el => focusOff(el));
+
+//dropdown
 function removeActive() {
     document.querySelectorAll('.dropdowns__isActive').forEach((el) => {
         el.classList.remove('dropdowns__isActive')
@@ -9,10 +29,11 @@ function removeActive() {
     })
 }
 
+const canHover = window.matchMedia('(hover: hover)').matches;
+
 document.querySelectorAll('.dropdowns__title').forEach((el) => {
     el.addEventListener('click', (ev) => {
-        ev.preventDefault;
-        // ev.stopPropagation;
+        ev.preventDefault();
         const link = el.children[0];
         const menu = el.children[1];
         if (link.classList.contains('dropdowns__link-isActive')) {
@@ -24,28 +45,21 @@ document.querySelectorAll('.dropdowns__title').forEach((el) => {
         menu.classList.add('dropdowns__isActive');
         }
     )
+    if (canHover) {
+        el.addEventListener('mouseover', () => {
+            const link = el.children[0];
+            const menu = el.children[1];
+            link.classList.add('dropdowns__link-isActive');
+            menu.classList.add('dropdowns__isActive');
+        })
+    }
 })
 
-//не срабатывает в мобильной версии первый клик
-// const canHover = window.matchMedia('(hover: hover)').matches;
-// if (canHover) {
-//     document.querySelectorAll('.dropdowns__title').forEach((el) => {
-//         el.addEventListener('mouseover', (ev) => {
-//             ev.preventDefault;
-//             // ev.stopPropagation;
-//             const link = el.children[0];
-//             const menu = el.children[1];
-//             link.classList.add('dropdowns__link-isActive');
-//             menu.classList.add('dropdowns__isActive');
-//             }
-//         )
-//     })
-//     document.addEventListener('mouseout', (ev) => {
-//         if (ev.target.className !== 'dropdowns__link dropdowns__link-isActive') {
-//             removeActive()
-//         }
-//     })
-// }
+document.addEventListener('mouseout', (ev) => {
+    if (ev.target.className !== 'dropdowns__link dropdowns__link-isActive') {
+        removeActive()
+    }
+})
 
 document.addEventListener('click', (ev) => {
     if (ev.target.className !== 'dropdowns__link dropdowns__link-isActive') {
@@ -60,55 +74,60 @@ document.querySelectorAll('.dropdowns__menu').forEach((el) => {
 
 // //бургер
 const burger = document.querySelector('.burger__btn');
-const nav = document.querySelector('.burger__menu');
+const menu = document.querySelector('.burger__menu');
 const body = document.querySelector('body');
-const burgerList = document.querySelector('.burger__list');
-const button = document.querySelector('.burger__bottom');
+const burgerLink = document.querySelectorAll('.burger__link');
 
 const open = () => {
+    burgerLink.forEach(el => {
+        burger.classList.contains('burger__btn-active') ?
+            el.tabIndex = -1 : el.tabIndex = 0;
+    })
     burger.classList.toggle('burger__btn-active');
-    nav.classList.toggle('burger__menu-on');
+    menu.classList.toggle('burger__menu-on');
     body.classList.toggle('overflow');
 }
 
 const close = () => {
+    burgerLink.forEach(el => el.tabIndex = -1);
     burger.classList.remove('burger__btn-active');
-    nav.classList.remove('burger__menu-on');
+    menu.classList.remove('burger__menu-on');
     body.classList.remove('overflow');
 }
 
 burger.addEventListener('click', () => open());
-burgerList.addEventListener('click', () => close());
-button.addEventListener('click', () => close());
+burgerLink.forEach(el => el.addEventListener('click', () => close()));
 
 //показ полосы поиска
-const search = document.querySelector('.header__input');
-const searchButton = document.querySelector('.adapt__button');
-const logo = document.querySelector('.header__left');
-const block = document.querySelector('.header__right');
-const searchBlock = document.querySelector('.adapt');
+const search = document.querySelector('.search__top');
+const buttonSearch = document.querySelector('.header__button');
+const labelSearch = document.querySelector('.header__label');
+const burgerBtn = document.querySelector('.burger__btn');
+const logo = document.querySelector('.header__logo');
 const closeButton = document.createElement('button');
 
-searchButton.addEventListener('click', () => {
-    if (document.documentElement.clientWidth < 831) {
-        [logo, burger].forEach(el => el.classList.toggle('block__none'));
-        block.classList.toggle('width__full');
-        searchBlock.append(closeButton);
-        closeButton.classList.toggle('adapt__close');
+buttonSearch.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    if (document.documentElement.clientWidth < 1367) {
+        labelSearch.classList.toggle('block');
     }
-    if (document.documentElement.clientWidth < 531) {
-        searchBlock.classList.toggle('header__search-padding');
+    if (document.documentElement.clientWidth < 769) {
+        search.append(closeButton);
+        closeButton.classList.toggle('search__top_close');
+        [burgerBtn, logo].forEach(el => el.classList.toggle('block-none'));
+        [labelSearch, search].forEach(el => el.classList.toggle('width-full'));
     }
-    search.classList.toggle('block');
+    if (document.documentElement.clientWidth < 591) {
+        search.classList.toggle('padding-search');
+    }
 })
 closeButton.addEventListener('click', () => {
-    [logo, burger].forEach(el => el.classList.remove('block__none'));
-    block.classList.remove('width__full');
-    closeButton.classList.remove('adapt__close');
-    search.classList.remove('block');
-    searchBlock.classList.remove('header__search-padding');
+    [labelSearch, search].forEach(el => el.classList.remove('width-full'));
+    labelSearch.classList.remove('block');
+    closeButton.classList.remove('search__top_close');
+    search.classList.remove('padding-search');
+    [burgerBtn, logo].forEach(el => el.classList.remove('block-none'));
 })
-
 
 // //плавная прокрутка
 // const anchors = document.querySelectorAll('a[href*="#"]')
