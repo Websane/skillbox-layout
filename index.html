@@ -10,6 +10,12 @@
   <link rel="stylesheet" href="css/simplebar.css">
   <script src="scripts/simplebar.min.js" defer></script>
 
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <script src="scripts/swiper-bundle.min.js" defer></script>
+
+  <link rel="stylesheet" href="css/choices.min.css">
+  <script src="scripts/choices.min.js" defer></script>
+
   <link rel="shortcut icon" href="img/favicon.png" type="image/png">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
@@ -27,12 +33,12 @@
         <nav class="header__nav">
           <ul class="header__list">
             <li class="header__item">
-              <a href="#" class="header__link">
+              <a href="#about" class="header__link">
                 О нас
               </a>
             </li>
             <li class="header__item">
-              <a href="#" class="header__link">
+              <a href="#gallery" class="header__link">
                 Галерея
               </a>
             </li>
@@ -351,7 +357,7 @@
       <div class="hero__pictures"></div>
       <div class="container hero__container">
 
-        <h2 class="hero__title">
+        <h2 class="title-reset hero__title">
           Прикоснитесь к прекрасному
         </h2>
         <p class="hero__descr">
@@ -362,6 +368,169 @@
           Подписаться на рассылку
         </a>
 
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="container about__container">
+        <h2 class="title-reset title about__title">
+          О нас
+        </h2>
+        <p class="about__descr">
+          Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого
+          участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов.
+          Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс
+          внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных
+          исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с
+          учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов,
+          действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны
+          быть разоблачены.
+        </p>
+      </div>
+    </section>
+    <section class="gallery" id="gallery">
+      <div class="container gallery__container">
+        <h2 class="title-reset title gallery__title">
+          Галерея
+        </h2>
+        <div class="gallery__left">
+          <label class="gallery__label">
+            <span class="gallery__label--descr">Фильтровать по:</span>
+            <select class="select gallery__select" id="selectCustom" name="фильтр">
+              <option class="select__item" value="Автор">
+                Автор
+              </option>
+              <option class="select__item" value="Направление">
+                Направление
+              </option>
+              <option class="select__item" value="Техника">
+                Техника
+              </option>
+            </select>
+          </label>
+          <p class="gallery__descr">
+            Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний
+            <a href="#" class="gallery__descr--link">авторизуйтесь</a>,
+            либо воспользуйтесь лицензией.
+          </p>
+        </div>
+        <div class="gallery__controls">
+          <div class="gallery__prev navigation"></div>
+          <div class="gallery__pagination"></div>
+          <div class="gallery__next navigation"></div>
+        </div>
+        <div class="swiper-container gallery__swiper">
+          <div class="gallery__modal visually-hidden"></div>
+          <div class="swiper-wrapper">
+            <ul class="list-reset swiper-slide gallery__slide">
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/1.jpg" alt="Малевич, Два крестьянина на фоне полей">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/2.jpg" alt="Малевич, Уборка ржи">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/3.jpg" alt="Малевич, Супрематическая композиция">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/4.jpg" alt="Малевич, Женщина с граблями">
+                </a>
+                <figure class="modal visually-hidden">
+                  <img class="modal__img" src="img/gallery/slider/4m.jpg" alt="Малевич, Женщина с граблями">
+                  <figcaption class="modal__descr">
+                    <h3 class="title-reset modal__title">Казимир Малевич</h3>
+                    <h4 class="title-reset modal__subtitle">"Женщина с граблями"</h4>
+                    <small class="modal__date">1931-1932</small>
+                    <p class="modal__text">
+                      Картина из второй серии крестьянского цикла работ Казимира Малевича. Художник принялся за её создание в 1930-1931 годах, после того, как первый цикл был утерян после Берлинской и Варшавской выставок в 1927 году.
+                    </p>
+                    <span class="modal__close"></span>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/5.jpg" alt="Малевич, Плотник">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/6.jpg" alt="Малевич, Торс (Фигура с розовым лицом)">
+                </a>
+              </li>
+            </ul>
+            <ul class="list-reset swiper-slide gallery__slide">
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/7.jpg" alt="Малевич, Супремус №58">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/8.jpg" alt="Малевич, Супрематизм 1916">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/9.jpg" alt="Малевич, Купальщики">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/10.jpg" alt="Малевич, Супрематизм">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/11.jpg" alt="Малевич, Девушки в поле">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/12.jpg" alt="Малевич, Женщина с ведрами">
+                </a>
+              </li>
+            </ul>
+            <ul class="list-reset swiper-slide gallery__slide">
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/13.jpg" alt="Малевич, Супрематизм 1915">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/14.jpg" alt="Малевич, Зимний пейзаж">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/15.jpg" alt="Малевич, На сенокосе">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/16.jpg" alt="Малевич, женская фигура">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/17.jpg" alt="Малевич, Бюро и комната">
+                </a>
+              </li>
+              <li class="gallery__image" tabindex="0">
+                <a class="gallery__link">
+                  <img class="gallery__link--img" src="img/gallery/slider/18.jpg" alt="Малевич, Спортсмены">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>

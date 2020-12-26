@@ -129,17 +129,74 @@ document.querySelectorAll('.dropdowns__menu').forEach((el) => {
 // })
 
 // //плавная прокрутка
-// const anchors = document.querySelectorAll('a[href*="#"]')
+const anchors = document.querySelectorAll('a[href*="#"]')
 
-// for (let anchor of anchors) {
-//     anchor.addEventListener('click', function (e) {
-//         e.preventDefault()
+for (let anchor of anchors) {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault()
 
-//         const blockID = anchor.getAttribute('href').substr(1)
+        const blockID = anchor.getAttribute('href').substr(1);
 
-//         document.getElementById(blockID).scrollIntoView({
-//             behavior: 'smooth',
-//             block: 'start'
-//         })
-//     })
-// }
+        document.getElementById(blockID).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+}
+//свайпер
+const swiper = new Swiper('.swiper-container', {
+    // Optional parameters
+    // direction: 'vertical',
+    loop: true,
+    navigation: {
+      nextEl: '.gallery__next',
+      prevEl: '.gallery__prev',
+    },
+    pagination: {
+      el: '.gallery__pagination',
+      type: 'custom',
+      renderCustom: function (swiper, current, total) {
+        return current + ' / ' + total;
+      }
+    },
+})
+
+// Выпадающий список
+const element = document.querySelector('#selectCustom');
+const choices = new Choices(element, {
+    searchEnabled: false,
+    itemSelectText: '',
+    shouldSort: false,
+});
+
+//модальное окно
+
+const modalContainer = document.querySelector('.gallery__modal');
+
+function clearModal() {
+  modalContainer.innerHTML = '';
+  modalContainer.classList.add('visually-hidden');
+}
+
+document.querySelectorAll('.gallery__link').forEach(el => {
+  el.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    clearModal();
+    const parent = ev.target.parentElement;
+    const child = parent.children[1];
+    if (child) {
+    const modal = child.cloneNode(true);
+    modalContainer.append(modal);
+    [modalContainer, modal].forEach(el => el.classList.remove('visually-hidden'));
+    }
+  })
+})
+
+document.addEventListener('click', (ev) => {
+  const nodes = modalContainer.childNodes;
+  for (let node of nodes) {
+    if (node.classList.value !== 'modal' && ev.target.className !== 'gallery__link' || ev.target.className === 'modal__close') {
+      clearModal();
+    }
+  }
+})
