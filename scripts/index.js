@@ -172,31 +172,39 @@ const choices = new Choices(element, {
 //модальное окно
 
 const modalContainer = document.querySelector('.gallery__modal');
+const body = document.querySelector('body');
 
 function clearModal() {
   modalContainer.innerHTML = '';
-  modalContainer.classList.add('visually-hidden');
+  body.classList.remove('overflow');
+  body.style.removeProperty('padding-right');
+  modalContainer.classList.remove('flex');
+  modalContainer.classList.remove('gallery__modal--off');
 }
 
 document.querySelectorAll('.gallery__link').forEach(el => {
   el.addEventListener('click', (ev) => {
     ev.preventDefault();
     clearModal();
+    const widthWindow = document.documentElement.clientWidth;
     const parent = ev.target.parentElement;
     const child = parent.children[1];
     if (child) {
     const modal = child.cloneNode(true);
     modalContainer.append(modal);
-    [modalContainer, modal].forEach(el => el.classList.remove('visually-hidden'));
+    const modalChild = modalContainer.children[0];
+    [modalContainer, modalChild].forEach(el => el.classList.add('flex'));
+    body.classList.add('overflow');
+    const widthWindowNew = document.documentElement.clientWidth;
+    const scrollWidth = widthWindowNew - widthWindow;
+    body.style.paddingRight = scrollWidth + 'px';
     }
   })
 })
 
 document.addEventListener('click', (ev) => {
-  const nodes = modalContainer.childNodes;
-  for (let node of nodes) {
-    if (node.classList.value !== 'modal' && ev.target.className !== 'gallery__link' || ev.target.className === 'modal__close') {
-      clearModal();
-    }
+  if (ev.target.className === 'modal__close') {
+    setTimeout(clearModal, 400);
+    modalContainer.classList.add('gallery__modal--off');
   }
 })
