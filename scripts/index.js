@@ -4,6 +4,9 @@ let mouseDown = false;
 const headerLink = document.querySelectorAll('.header__link');
 const headerEntry = document.querySelectorAll('.header__entry');
 const dropdownsLink = document.querySelectorAll('.dropdowns__link');
+const articleLink = document.querySelectorAll('.article__link');
+const articleBtn = document.querySelectorAll('.article__btn');
+const navi = document.querySelectorAll('.navigation');
 
 function focusOff(el) {
     el.addEventListener('mousedown', () => mouseDown = true);
@@ -15,9 +18,17 @@ function focusOff(el) {
     });
 }
 
-headerLink.forEach(el => focusOff(el));
-headerEntry.forEach(el => focusOff(el));
-dropdownsLink.forEach(el => focusOff(el));
+function removeFocusOnClick(...selectors) {
+  selectors.forEach(selector => selector.forEach(el => focusOff(el)));
+}
+
+removeFocusOnClick (headerLink,
+                    headerEntry,
+                    dropdownsLink,
+                    articleLink,
+                    articleBtn,
+                    navi
+                    );
 
 //dropdown
 function removeActive() {
@@ -108,12 +119,12 @@ document.querySelectorAll('.dropdowns__menu').forEach((el) => {
 // buttonSearch.addEventListener('click', (ev) => {
 //     ev.preventDefault();
 //     if (document.documentElement.clientWidth < 1367) {
-//         labelSearch.classList.toggle('block');
+//         labelSearch.classList.toggle('active');
 //     }
 //     if (document.documentElement.clientWidth < 769) {
 //         search.append(closeButton);
 //         closeButton.classList.toggle('search__top_close');
-//         [burgerBtn, logo].forEach(el => el.classList.toggle('block-none'));
+//         [burgerBtn, logo].forEach(el => el.classList.toggle('unactive'));
 //         [labelSearch, search].forEach(el => el.classList.toggle('width-full'));
 //     }
 //     if (document.documentElement.clientWidth < 591) {
@@ -122,10 +133,10 @@ document.querySelectorAll('.dropdowns__menu').forEach((el) => {
 // })
 // closeButton.addEventListener('click', () => {
 //     [labelSearch, search].forEach(el => el.classList.remove('width-full'));
-//     labelSearch.classList.remove('block');
+//     labelSearch.classList.remove('active');
 //     closeButton.classList.remove('search__top_close');
 //     search.classList.remove('padding-search');
-//     [burgerBtn, logo].forEach(el => el.classList.remove('block-none'));
+//     [burgerBtn, logo].forEach(el => el.classList.remove('unactive'));
 // })
 
 // //плавная прокрутка
@@ -190,21 +201,59 @@ document.querySelectorAll('.gallery__link').forEach(el => {
     const parent = ev.target.parentElement;
     const child = parent.children[1];
     if (child) {
-    const modal = child.cloneNode(true);
-    modalContainer.append(modal);
-    const modalChild = modalContainer.children[0];
-    [modalContainer, modalChild].forEach(el => el.classList.add('flex'));
-    body.classList.add('overflow');
-    const widthWindowNew = document.documentElement.clientWidth;
-    const scrollWidth = widthWindowNew - widthWindow;
-    body.style.paddingRight = scrollWidth + 'px';
+      const modal = child.cloneNode(true);
+      modalContainer.append(modal);
+      const modalChild = modalContainer.children[0];
+      [modalContainer, modalChild].forEach(el => el.classList.add('flex'));
+      body.classList.add('overflow');
+      const widthWindowNew = document.documentElement.clientWidth;
+      const scrollWidth = widthWindowNew - widthWindow;
+      body.style.paddingRight = scrollWidth + 'px';
     }
   })
 })
 
 document.addEventListener('click', (ev) => {
-  if (ev.target.className === 'modal__close') {
+  if (ev.target.className === 'modal__close' || ev.target.className === 'gallery__modal flex') {
     setTimeout(clearModal, 400);
     modalContainer.classList.add('gallery__modal--off');
   }
 })
+
+//аккордион
+$( function() {
+    const icons = {
+        header: 'accordion--close',
+        activeHeader: 'accordion--open'
+    }
+
+    $( "#accordion" ).accordion({
+      active: false,
+      collapsible: true,
+      icons: icons,
+      heightStyle: "content",
+    });
+});
+
+//табы
+function tabs(button, content) {
+  document.querySelectorAll(button).forEach(el => {
+    el.addEventListener('click', ev => {
+      if(el.className === 'country__btn') {
+        document.querySelectorAll('.country__btn').forEach(el =>
+          el.classList.remove('country__btn--active')
+        );
+        el.classList.add('country__btn--active');
+      }
+      const path = ev.currentTarget.dataset.path;
+      document.querySelectorAll(content).forEach(el => {
+        el.classList.remove('active');
+      })
+      document.querySelector(`[data-target="${path}"]`).classList.add('active');
+    })
+  })
+}
+
+tabs('.country__btn', '.article');
+tabs('.article__link', '.painter');
+
