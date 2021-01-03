@@ -204,17 +204,17 @@ accordionHeaders.forEach(accordionBtn => {
     const content = accordionBtn.nextElementSibling;
     const expanded = accordionBtn.getAttribute('aria-expanded') === 'true' || false;
     if (expanded) {
-      accordionBtn.ariaExpanded = !expanded;
+      accordionBtn.setAttribute('aria-expanded', !expanded);
       } else {
       accordionHeaders.forEach(accordionBtn => {
-        accordionBtn.ariaExpanded = expanded;
+        accordionBtn.setAttribute('aria-expanded', expanded);
       })
       document.querySelectorAll('.article__artists').forEach(accordionContent => {
-        accordionContent.ariaHidden = !expanded;
+        accordionContent.setAttribute('aria-hidden', !expanded);
       })
-      accordionBtn.ariaExpanded = !expanded;
+      accordionBtn.setAttribute('aria-expanded', !expanded);
     }
-    content.ariaHidden = expanded;
+    content.setAttribute('aria-hidden', expanded);
     tabContent(content, expanded);
   }
 })
