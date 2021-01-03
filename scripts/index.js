@@ -1,35 +1,3 @@
-//отмена фокуса при клике
-let mouseDown = false;
-
-const headerLink = document.querySelectorAll('.header__link');
-const headerEntry = document.querySelectorAll('.header__entry');
-const dropdownsLink = document.querySelectorAll('.dropdowns__link');
-const articleLink = document.querySelectorAll('.article__link');
-const articleBtn = document.querySelectorAll('.article__btn');
-const navi = document.querySelectorAll('.navigation');
-
-function focusOff(el) {
-    el.addEventListener('mousedown', () => mouseDown = true);
-    el.addEventListener('mouseup', () => mouseDown = false);
-    el.addEventListener('focus', () => {
-        if (mouseDown) {
-        el.blur();
-        }
-    });
-}
-
-function removeFocusOnClick(...selectors) {
-  selectors.forEach(selector => selector.forEach(el => focusOff(el)));
-}
-
-removeFocusOnClick (headerLink,
-                    headerEntry,
-                    dropdownsLink,
-                    articleLink,
-                    articleBtn,
-                    navi
-                    );
-
 //dropdown
 function removeActive() {
     document.querySelectorAll('.dropdowns__isActive').forEach((el) => {
@@ -140,7 +108,7 @@ document.querySelectorAll('.dropdowns__menu').forEach((el) => {
 // })
 
 // //плавная прокрутка
-const anchors = document.querySelectorAll('a[href*="#"]')
+const anchors = document.querySelectorAll('.header__link')
 
 for (let anchor of anchors) {
     anchor.addEventListener('click', function (e) {
@@ -221,19 +189,35 @@ document.addEventListener('click', (ev) => {
 })
 
 //аккордион
-$( function() {
-    const icons = {
-        header: 'accordion--close',
-        activeHeader: 'accordion--open'
+function tabContent(content, boolean) {
+  content.querySelectorAll('.article__link').forEach(el => {
+    if (boolean) {
+    el.removeAttribute('tabindex');
+    } else {
+      el.tabIndex = 0
+    };
+  })
+}
+const accordionHeaders = document.querySelectorAll('.article__btn');
+accordionHeaders.forEach(accordionBtn => {
+  accordionBtn.onclick = () => {
+    const content = accordionBtn.nextElementSibling;
+    const expanded = accordionBtn.getAttribute('aria-expanded') === 'true' || false;
+    if (expanded) {
+      accordionBtn.ariaExpanded = !expanded;
+      } else {
+      accordionHeaders.forEach(accordionBtn => {
+        accordionBtn.ariaExpanded = expanded;
+      })
+      document.querySelectorAll('.article__artists').forEach(accordionContent => {
+        accordionContent.ariaHidden = !expanded;
+      })
+      accordionBtn.ariaExpanded = !expanded;
     }
-
-    $( "#accordion" ).accordion({
-      active: false,
-      collapsible: true,
-      icons: icons,
-      heightStyle: "content",
-    });
-});
+    content.ariaHidden = expanded;
+    tabContent(content, expanded);
+  }
+})
 
 //табы
 function tabs(button, content) {
@@ -257,3 +241,49 @@ function tabs(button, content) {
 tabs('.country__btn', '.article');
 tabs('.article__link', '.painter');
 
+//секция Events
+const viewAll = document.querySelector('.events__btn');
+const cards = document.querySelectorAll('.card');
+const cardLinks = document.querySelectorAll('.card__link');
+
+viewAll.onclick = () => {
+  cards.forEach(card => {
+    card.classList.remove('unactive');
+    viewAll.classList.add('unactive');
+  })
+}
+
+//отмена фокуса при клике
+let mouseDown = false;
+
+const headerLink = document.querySelectorAll('.header__link');
+const headerEntry = document.querySelectorAll('.header__entry');
+const dropdownsLink = document.querySelectorAll('.dropdowns__link');
+const articleLink = document.querySelectorAll('.article__link');
+const articleBtn = document.querySelectorAll('.article__btn');
+const navi = document.querySelectorAll('.navigation');
+
+function focusOff(el) {
+    el.addEventListener('mousedown', () => mouseDown = true);
+    el.addEventListener('mouseup', () => mouseDown = false);
+    el.addEventListener('focus', () => {
+        if (mouseDown) {
+        el.blur();
+        }
+    });
+}
+
+function removeFocusOnClick(...selectors) {
+  selectors.forEach(selector => selector.forEach(el => focusOff(el)));
+}
+
+focusOff(viewAll);
+
+removeFocusOnClick (headerLink,
+                    headerEntry,
+                    dropdownsLink,
+                    articleLink,
+                    articleBtn,
+                    navi,
+                    cardLinks
+                    );
