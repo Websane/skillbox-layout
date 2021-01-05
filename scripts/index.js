@@ -122,14 +122,12 @@ for (let anchor of anchors) {
         });
     });
 }
-//свайпер
-const swiper = new Swiper('.swiper-container', {
-    // Optional parameters
-    // direction: 'vertical',
+//свайперы
+const swiperGallery = new Swiper('.gallery__swiper', {
     loop: true,
     navigation: {
-      nextEl: '.gallery__next',
-      prevEl: '.gallery__prev',
+      nextEl: '.slider-section__next',
+      prevEl: '.slider-section__prev',
     },
     pagination: {
       el: '.gallery__pagination',
@@ -138,7 +136,22 @@ const swiper = new Swiper('.swiper-container', {
         return current + ' / ' + total;
       }
     },
-})
+});
+
+const swiperEditions = new Swiper('.editions__swiper', {
+  loop: true,
+  navigation: {
+    nextEl: '.slider-section__next',
+    prevEl: '.slider-section__prev',
+  },
+  pagination: {
+    el: '.editions__pagination',
+    type: 'custom',
+    renderCustom: function (swiper, current, total) {
+      return current + ' / ' + total;
+    }
+  },
+});
 
 // Выпадающий список
 const element = document.querySelector('#selectCustom');
@@ -220,6 +233,7 @@ accordionHeaders.forEach(accordionBtn => {
 })
 
 //табы
+
 function tabs(button, content) {
   document.querySelectorAll(button).forEach(el => {
     el.addEventListener('click', ev => {
@@ -230,10 +244,16 @@ function tabs(button, content) {
         el.classList.add('country__btn--active');
       }
       const path = ev.currentTarget.dataset.path;
-      document.querySelectorAll(content).forEach(el => {
+      const parent = el.closest('div[data-target]') ? el.closest('div[data-target]') : document;
+      const target = parent.querySelector(`[data-target="${path}"]`);
+      parent.querySelectorAll(content).forEach(el => {
         el.classList.remove('active');
-      })
-      document.querySelector(`[data-target="${path}"]`).classList.add('active');
+      });
+      if (target === null) {
+        parent.querySelector(`[data-target="template"]`).classList.add('active');
+      } else {
+        target.classList.add('active');
+      }
     })
   })
 }
@@ -262,6 +282,7 @@ const dropdownsLink = document.querySelectorAll('.dropdowns__link');
 const articleLink = document.querySelectorAll('.article__link');
 const articleBtn = document.querySelectorAll('.article__btn');
 const navi = document.querySelectorAll('.navigation');
+const checkbox = document.querySelectorAll('.categories__name');
 
 function focusOff(el) {
     el.addEventListener('mousedown', () => mouseDown = true);
@@ -285,5 +306,6 @@ removeFocusOnClick (headerLink,
                     articleLink,
                     articleBtn,
                     navi,
-                    cardLinks
+                    cardLinks,
+                    checkbox
                     );

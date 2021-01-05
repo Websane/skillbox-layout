@@ -53,7 +53,7 @@
               </a>
             </li>
             <li class="header__item">
-              <a href="#" class="header__link">
+              <a href="#editions" class="header__link">
                 Издания
               </a>
             </li>
@@ -387,12 +387,12 @@
         </p>
       </div>
     </section>
-    <section class="gallery" id="gallery">
-      <div class="container gallery__container">
-        <h2 class="title-reset title gallery__title">
+    <section class="slider-section gallery" id="gallery">
+      <div class="container slider-section__container gallery__container">
+        <h2 class="title-reset title slider-section__title gallery__title">
           Галерея
         </h2>
-        <div class="gallery__left">
+        <div class="slider-section__left">
           <label class="gallery__label">
             <span class="gallery__label--descr">Фильтровать по:</span>
             <select class="select gallery__select" id="selectCustom" name="фильтр">
@@ -413,15 +413,15 @@
             либо воспользуйтесь лицензией.
           </p>
         </div>
-        <div class="gallery__controls">
-          <div class="gallery__prev navigation"></div>
-          <div class="gallery__pagination"></div>
-          <div class="gallery__next navigation"></div>
+        <div class="slider-section__controls gallery__controls">
+          <div class="slider-section__prev navigation"></div>
+          <div class="slider-section__pagination gallery__pagination"></div>
+          <div class="slider-section__next navigation"></div>
         </div>
         <div class="gallery__modal" role="dialog" aria-modal="true"></div>
-        <div class="swiper-container gallery__swiper">
+        <div class="swiper-container slider-section__swiper gallery__swiper">
           <div class="swiper-wrapper">
-            <ul class="list-reset swiper-slide gallery__slide">
+            <ul class="list-reset swiper-slide slider-section__slide gallery__slide">
               <li class="gallery__image" tabindex="0">
                 <a class="gallery__link">
                   <img class="gallery__picture" src="img/gallery/slider/1.jpg"
@@ -470,7 +470,7 @@
                 </a>
               </li>
             </ul>
-            <ul class="list-reset swiper-slide gallery__slide">
+            <ul class="list-reset swiper-slide slider-section__slide gallery__slide">
               <li class="gallery__image" tabindex="0">
                 <a class="gallery__link">
                   <img class="gallery__picture" src="img/gallery/slider/7.jpg" alt="Малевич, Супремус №58">
@@ -502,7 +502,7 @@
                 </a>
               </li>
             </ul>
-            <ul class="list-reset swiper-slide gallery__slide">
+            <ul class="list-reset swiper-slide slider-section__slide gallery__slide">
               <li class="gallery__image" tabindex="0">
                 <a class="gallery__link">
                   <img class="gallery__picture" src="img/gallery/slider/13.jpg" alt="Малевич, Супрематизм 1915">
@@ -534,7 +534,7 @@
                 </a>
               </li>
             </ul>
-            <ul class="list-reset swiper-slide gallery__slide">
+            <ul class="list-reset swiper-slide slider-section__slide gallery__slide">
               <li class="gallery__image" tabindex="0">
                 <a class="gallery__link">
                   <img class="gallery__picture" src="img/gallery/slider/19.jpg" alt="Жан Оноре Фрагонар, Жмурки">
@@ -566,7 +566,7 @@
                 </a>
               </li>
             </ul>
-            <ul class="list-reset swiper-slide gallery__slide">
+            <ul class="list-reset swiper-slide slider-section__slide gallery__slide">
               <li class="gallery__image" tabindex="0">
                 <a class="gallery__link">
                   <img class="gallery__picture" src="img/gallery/slider/25.jpg" alt="Карл Брюллов, Итальянский полдень">
@@ -676,7 +676,19 @@
                 </p>
               </figcaption>
             </figure>
-            <ul class="list-reset article__list" id="accordion">
+            <figure class="article__painter painter" data-target="template">
+              <img class="painter__img" src="img/catalog/template/1.png" alt="Имя автора">
+              <figcaption class="painter__descr">
+                <h3 class="title-reset painter__name">Петр Табаков</h3>
+                <small class="painter__date">1666 — 1736.</small>
+                <p class="painter__text">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam animi esse rerum fugiat error sequi
+                  provident recusandae, quia odio quisquam ducimus facere, totam ea tempora? Provident molestiae
+                  molestias illo modi.
+                </p>
+              </figcaption>
+            </figure>
+            <ul class="list-reset article__list">
               <li class="article__items">
                 <button class="article__btn" tabindex="0" aria-expanded="false">
                   <span class="article__dates">C 1400 по 1499 гг.</span>
@@ -1608,7 +1620,970 @@
           <p>FRANCE</p>
         </div>
         <div class="catalog__article article" data-target="germany">
-          <p>GERMANY</p>
+          <p class="article__descr">
+            Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа
+            политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь
+            частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются
+            уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
+          </p>
+          <div class="article__content">
+            <figure class="article__painter painter active" data-target="burgkmair">
+              <img class="painter__img" src="img/catalog/burgkmair/image.jpg" alt="Ханс Бургкмайр">
+              <figcaption class="painter__descr">
+                <h3 class="title-reset painter__name">Ханс Бургкмайр</h3>
+                <small class="painter__date">1473 — 1531.</small>
+                <p class="painter__text">
+                  Ханс Бургкмайр родился в 1473 году в городе Аугсбурге; происходил из семьи художников. Первоначальное
+                  обучение он прошёл у своего отца, художника Томана Бургкмайра (1444—1523).
+                  С 1488 по 1490 год Бургкмайр проходил обучение в Кольмаре в Эльзасе у Мартина Шонгауэра. Не исключено,
+                  что в годы странствий он доехал из Аугсбурга до Кёльна.
+                  Около 1507 года художник побывал в Италии, где его привлекло творчество Карло Кривелли и Витторе
+                  Карпаччо.
+                  Наряду с живописью Бургкмайр занимался ксилографией.
+                  Ханс Бургкмайр привлекался неоднократно к работам самим императором Максимилианом I (иллюстрование
+                  романа Theuerdank) и пользовался большой славой как у себя в Аугсбурге, так и за его пределами.
+                </p>
+              </figcaption>
+            </figure>
+            <figure class="article__painter painter" data-target="template">
+              <img class="painter__img" src="img/catalog/template/1.png" alt="Имя автора">
+              <figcaption class="painter__descr">
+                <h3 class="title-reset painter__name">Петр Табаков</h3>
+                <small class="painter__date">1666 — 1736.</small>
+                <p class="painter__text">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam animi esse rerum fugiat error sequi
+                  provident recusandae, quia odio quisquam ducimus facere, totam ea tempora? Provident molestiae
+                  molestias illo modi.
+                </p>
+              </figcaption>
+            </figure>
+            <ul class="list-reset article__list">
+              <li class="article__items">
+                <button class="article__btn" tabindex="0" aria-expanded="false">
+                  <span class="article__dates">C 1400 по 1499 гг.</span>
+                  <span class="article__btn--svg">
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.3333 1.33334L9 9.66667L0.666664 1.33334" />
+                    </svg>
+                  </span>
+                </button>
+                <ul class="list-reset article__artists" aria-hidden="true">
+                  <li class="article__name">
+                    <a class="article__link" data-path="burgkmair">
+                      Ханс Бургкмайр
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bergonione">
+                      Бергоньоне, Амброджо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bissolo">
+                      Биссоло, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="boltraffio">
+                      Больтраффио, Джованни
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bonsiniory">
+                      Бонсиньори, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="botichiny">
+                      Боттичини, Рафаэлло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bramantino">
+                      Брамантино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="brea">
+                      Бреа, Людовико
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="tutchy">
+                      Бьяджо д’Антонио Туччи
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="vekyetta">
+                      Векьетта
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="verokkyo">
+                      Андреа Верроккьо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="girlandayo">
+                      Доменико Гирландайо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="gozzoly">
+                      Беноццо Гоццоли
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="granatchy">
+                      Граначчи, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="chekko">
+                      Грегорио ди Чекко
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="udine">
+                      Джованни да Удине
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="paolo">
+                      Джованни ди Паоло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="dgordjone">
+                      Джорджоне
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="parentino">
+                      Парентино, Бернардо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pezellino">
+                      Пезеллино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="perudjino">
+                      Пьетро Перуджино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="peruccy">
+                      Перуцци, Бальдассаре
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pizanello">
+                      Пизанелло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pinturikkyo">
+                      Пинтуриккьо
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="article__items">
+                <button class="article__btn" tabindex="0" aria-expanded="false">
+                  <span class="article__dates">C 1500 по 1599 гг.</span>
+                  <span class="article__btn--svg">
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.3333 1.33334L9 9.66667L0.666664 1.33334" />
+                    </svg>
+                  </span>
+                </button>
+                <ul class="list-reset article__artists" aria-hidden="true">
+                  <li class="article__name">
+                    <a class="article__link" data-path="bindo">
+                      Бенедетто ди Биндо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bergonione">
+                      Бергоньоне, Амброджо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bissolo">
+                      Биссоло, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="boltraffio">
+                      Больтраффио, Джованни
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bonsiniory">
+                      Бонсиньори, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="botichiny">
+                      Боттичини, Рафаэлло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bramantino">
+                      Брамантино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="brea">
+                      Бреа, Людовико
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="tutchy">
+                      Бьяджо д’Антонио Туччи
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="vekyetta">
+                      Векьетта
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="verokkyo">
+                      Андреа Верроккьо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="girlandayo">
+                      Доменико Гирландайо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="gozzoly">
+                      Беноццо Гоццоли
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="granatchy">
+                      Граначчи, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="chekko">
+                      Грегорио ди Чекко
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="udine">
+                      Джованни да Удине
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="paolo">
+                      Джованни ди Паоло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="dgordjone">
+                      Джорджоне
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="parentino">
+                      Парентино, Бернардо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pezellino">
+                      Пезеллино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="perudjino">
+                      Пьетро Перуджино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="peruccy">
+                      Перуцци, Бальдассаре
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pizanello">
+                      Пизанелло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pinturikkyo">
+                      Пинтуриккьо
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="article__items">
+                <button class="article__btn" tabindex="0" aria-expanded="false">
+                  <span class="article__dates">C 1600 по 1699 гг.</span>
+                  <span class="article__btn--svg">
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.3333 1.33334L9 9.66667L0.666664 1.33334" />
+                    </svg>
+                  </span>
+                </button>
+                <ul class="list-reset article__artists" aria-hidden="true">
+                  <li class="article__name">
+                    <a class="article__link" data-path="bindo">
+                      Бенедетто ди Биндо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bergonione">
+                      Бергоньоне, Амброджо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bissolo">
+                      Биссоло, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="boltraffio">
+                      Больтраффио, Джованни
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bonsiniory">
+                      Бонсиньори, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="botichiny">
+                      Боттичини, Рафаэлло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bramantino">
+                      Брамантино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="brea">
+                      Бреа, Людовико
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="tutchy">
+                      Бьяджо д’Антонио Туччи
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="vekyetta">
+                      Векьетта
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="verokkyo">
+                      Андреа Верроккьо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="girlandayo">
+                      Доменико Гирландайо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="gozzoly">
+                      Беноццо Гоццоли
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="granatchy">
+                      Граначчи, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="chekko">
+                      Грегорио ди Чекко
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="udine">
+                      Джованни да Удине
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="paolo">
+                      Джованни ди Паоло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="dgordjone">
+                      Джорджоне
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="parentino">
+                      Парентино, Бернардо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pezellino">
+                      Пезеллино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="perudjino">
+                      Пьетро Перуджино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="peruccy">
+                      Перуцци, Бальдассаре
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pizanello">
+                      Пизанелло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pinturikkyo">
+                      Пинтуриккьо
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="article__items">
+                <button class="article__btn" tabindex="0" aria-expanded="false">
+                  <span class="article__dates">C 1700 по 1799 гг.</span>
+                  <span class="article__btn--svg">
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.3333 1.33334L9 9.66667L0.666664 1.33334" />
+                    </svg>
+                  </span>
+                </button>
+                <ul class="list-reset article__artists" aria-hidden="true">
+                  <li class="article__name">
+                    <a class="article__link" data-path="bindo">
+                      Бенедетто ди Биндо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bergonione">
+                      Бергоньоне, Амброджо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bissolo">
+                      Биссоло, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="boltraffio">
+                      Больтраффио, Джованни
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bonsiniory">
+                      Бонсиньори, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="botichiny">
+                      Боттичини, Рафаэлло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bramantino">
+                      Брамантино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="brea">
+                      Бреа, Людовико
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="tutchy">
+                      Бьяджо д’Антонио Туччи
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="vekyetta">
+                      Векьетта
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="verokkyo">
+                      Андреа Верроккьо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="girlandayo">
+                      Доменико Гирландайо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="gozzoly">
+                      Беноццо Гоццоли
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="granatchy">
+                      Граначчи, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="chekko">
+                      Грегорио ди Чекко
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="udine">
+                      Джованни да Удине
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="paolo">
+                      Джованни ди Паоло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="dgordjone">
+                      Джорджоне
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="parentino">
+                      Парентино, Бернардо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pezellino">
+                      Пезеллино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="perudjino">
+                      Пьетро Перуджино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="peruccy">
+                      Перуцци, Бальдассаре
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pizanello">
+                      Пизанелло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pinturikkyo">
+                      Пинтуриккьо
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="article__items">
+                <button class="article__btn" tabindex="0" aria-expanded="false">
+                  <span class="article__dates">C 1800 по 1899 гг.</span>
+                  <span class="article__btn--svg">
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.3333 1.33334L9 9.66667L0.666664 1.33334" />
+                    </svg>
+                  </span>
+                </button>
+                <ul class="list-reset article__artists" aria-hidden="true">
+                  <li class="article__name">
+                    <a class="article__link" data-path="bindo">
+                      Бенедетто ди Биндо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bergonione">
+                      Бергоньоне, Амброджо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bissolo">
+                      Биссоло, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="boltraffio">
+                      Больтраффио, Джованни
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bonsiniory">
+                      Бонсиньори, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="botichiny">
+                      Боттичини, Рафаэлло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bramantino">
+                      Брамантино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="brea">
+                      Бреа, Людовико
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="tutchy">
+                      Бьяджо д’Антонио Туччи
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="vekyetta">
+                      Векьетта
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="verokkyo">
+                      Андреа Верроккьо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="girlandayo">
+                      Доменико Гирландайо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="gozzoly">
+                      Беноццо Гоццоли
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="granatchy">
+                      Граначчи, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="chekko">
+                      Грегорио ди Чекко
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="udine">
+                      Джованни да Удине
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="paolo">
+                      Джованни ди Паоло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="dgordjone">
+                      Джорджоне
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="parentino">
+                      Парентино, Бернардо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pezellino">
+                      Пезеллино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="perudjino">
+                      Пьетро Перуджино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="peruccy">
+                      Перуцци, Бальдассаре
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pizanello">
+                      Пизанелло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pinturikkyo">
+                      Пинтуриккьо
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="article__items">
+                <button class="article__btn" tabindex="0" aria-expanded="false">
+                  <span class="article__dates">C 1900 по 1999 гг.</span>
+                  <span class="article__btn--svg">
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.3333 1.33334L9 9.66667L0.666664 1.33334" />
+                    </svg>
+                  </span>
+                </button>
+                <ul class="list-reset article__artists" aria-hidden="true">
+                  <li class="article__name">
+                    <a class="article__link" data-path="bindo">
+                      Бенедетто ди Биндо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bergonione">
+                      Бергоньоне, Амброджо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bissolo">
+                      Биссоло, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="boltraffio">
+                      Больтраффио, Джованни
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bonsiniory">
+                      Бонсиньори, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="botichiny">
+                      Боттичини, Рафаэлло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bramantino">
+                      Брамантино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="brea">
+                      Бреа, Людовико
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="tutchy">
+                      Бьяджо д’Антонио Туччи
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="vekyetta">
+                      Векьетта
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="verokkyo">
+                      Андреа Верроккьо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="girlandayo">
+                      Доменико Гирландайо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="gozzoly">
+                      Беноццо Гоццоли
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="granatchy">
+                      Граначчи, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="chekko">
+                      Грегорио ди Чекко
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="udine">
+                      Джованни да Удине
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="paolo">
+                      Джованни ди Паоло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="dgordjone">
+                      Джорджоне
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="parentino">
+                      Парентино, Бернардо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pezellino">
+                      Пезеллино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="perudjino">
+                      Пьетро Перуджино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="peruccy">
+                      Перуцци, Бальдассаре
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pizanello">
+                      Пизанелло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pinturikkyo">
+                      Пинтуриккьо
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="article__items">
+                <button class="article__btn" tabindex="0" aria-expanded="false">
+                  <span class="article__dates">C 2000 г.</span>
+                  <span class="article__btn--svg">
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.3333 1.33334L9 9.66667L0.666664 1.33334" />
+                    </svg>
+                  </span>
+                </button>
+                <ul class="list-reset article__artists" aria-hidden="true">
+                  <li class="article__name">
+                    <a class="article__link" data-path="bindo">
+                      Бенедетто ди Биндо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bergonione">
+                      Бергоньоне, Амброджо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bissolo">
+                      Биссоло, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="boltraffio">
+                      Больтраффио, Джованни
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bonsiniory">
+                      Бонсиньори, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="botichiny">
+                      Боттичини, Рафаэлло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="bramantino">
+                      Брамантино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="brea">
+                      Бреа, Людовико
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="tutchy">
+                      Бьяджо д’Антонио Туччи
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="vekyetta">
+                      Векьетта
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="verokkyo">
+                      Андреа Верроккьо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="girlandayo">
+                      Доменико Гирландайо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="gozzoly">
+                      Беноццо Гоццоли
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="granatchy">
+                      Граначчи, Франческо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="chekko">
+                      Грегорио ди Чекко
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="udine">
+                      Джованни да Удине
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="paolo">
+                      Джованни ди Паоло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="dgordjone">
+                      Джорджоне
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="parentino">
+                      Парентино, Бернардо
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pezellino">
+                      Пезеллино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="perudjino">
+                      Пьетро Перуджино
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="peruccy">
+                      Перуцци, Бальдассаре
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pizanello">
+                      Пизанелло
+                    </a>
+                  </li>
+                  <li class="article__name">
+                    <a class="article__link" data-path="pinturikkyo">
+                      Пинтуриккьо
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="catalog__article article" data-target="russia">
           <p>RUSSIA</p>
@@ -1625,17 +2600,15 @@
         </h2>
         <ul class="list-reset events__list">
           <li class="events__item card">
-            <figure class="card__picture">
-              <img class="card__img" src="img/events/1.jpg" alt="книжная гравюра">
-              <figcaption class="card__sign">
-                <span class="card__sign--place">Музей им. Щусева</span>
-                <span class="card__sign--date">с 20 марта по 30 апреля</span>
-              </figcaption>
-            </figure>
+            <img class="card__img" src="img/events/1.jpg" alt="книжная гравюра">
+            <p class="card__sign">
+              <span class="card__sign--place">Музей им. Щусева</span>
+              <span class="card__sign--date">с 20 марта по 30 апреля</span>
+            </p>
             <div class="card__content">
-              <h2 class="title-reset card__title">
+              <h3 class="title-reset card__title">
                 Книжная гравюра в живом восприятии
-              </h2>
+              </h3>
               <p class="card__descr">
                 Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую
                 продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело.
@@ -1646,23 +2619,22 @@
             </div>
           </li>
           <li class="events__item card">
-            <figure class="card__picture">
-              <img class="card__img" src="img/events/2.jpg" alt="витраж">
-              <figcaption class="card__sign">
-                <span class="card__sign--place">ММОМА</span>
-                <span class="card__sign--date">24 марта 19:00</span>
-              </figcaption>
-            </figure>
+            <img class="card__img" src="img/events/2.jpg" alt="витраж">
+            <p class="card__sign">
+              <span class="card__sign--place">ММОМА</span>
+              <span class="card__sign--date">24 марта 19:00</span>
+            </p>
             <div class="card__content">
-              <h2 class="title-reset card__title">
+              <h3 class="title-reset card__title">
                 «Открытая дискуссия». Дмитрий Петров и Сергей Ильин.
-              </h2>
+              </h3>
               <p class="card__descr">
                 Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого
                 факта: постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
                 проверки новых принципов формирования высокий уровень вовлечения представителей целевой аудитории
                 является четким доказательством простого факта: постоянный количественный рост и сфера нашей активности
-                представляет собой интересный эксперимент проверки новых принципов формирования высокий уровень вовлечения представителей целевой аудитории
+                представляет собой интересный эксперимент проверки новых принципов формирования высокий уровень
+                вовлечения представителей целевой аудитории
                 является четким доказательством простого факта: постоянный количественный рост и сфера нашей активности
                 представляет собой интересный эксперимент проверки новых принципов формирования
               </p>
@@ -1672,17 +2644,15 @@
             </div>
           </li>
           <li class="events__item card">
-            <figure class="card__picture">
-              <img class="card__img" src="img/events/3.jpg" alt="интерьер">
-              <figcaption class="card__sign">
-                <span class="card__sign--place">Еврейский музей</span>
-                <span class="card__sign--date">с 31 марта по 21 апреля</span>
-              </figcaption>
-            </figure>
+            <img class="card__img" src="img/events/3.jpg" alt="интерьер">
+            <p class="card__sign">
+              <span class="card__sign--place">Еврейский музей</span>
+              <span class="card__sign--date">с 31 марта по 21 апреля</span>
+            </p>
             <div class="card__content">
-              <h2 class="title-reset card__title">
+              <h3 class="title-reset card__title">
                 Выставка «Формация 2020»
-              </h2>
+              </h3>
               <p class="card__descr">
                 Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в
                 формировании глубокомысленных рассуждений. Также как перспективное планирование играет определяющее
@@ -1694,17 +2664,15 @@
             </div>
           </li>
           <li class="events__item card unactive">
-            <figure class="card__picture">
-              <img class="card__img" src="img/events/4.jpg" alt="абстракция">
-              <figcaption class="card__sign">
-                <span class="card__sign--place">Третьяковка на Крымском валу</span>
-                <span class="card__sign--date">с 30 марта по 30 апреля</span>
-              </figcaption>
-            </figure>
+            <img class="card__img" src="img/events/4.jpg" alt="абстракция">
+            <p class="card__sign">
+              <span class="card__sign--place">Третьяковка на Крымском валу</span>
+              <span class="card__sign--date">с 30 марта по 30 апреля</span>
+            </p>
             <div class="card__content">
-              <h2 class="title-reset card__title">
+              <h3 class="title-reset card__title">
                 XXIV Международная биеннале молодого искусства
-              </h2>
+              </h3>
               <p class="card__descr">
                 Внезапно, реплицированные с зарубежных источников, современные исследования представляют собой не что
                 иное, как квинтэссенцию победы маркетинга над разумом и должны быть рассмотрены исключительно в разрезе
@@ -1718,17 +2686,15 @@
             </div>
           </li>
           <li class="events__item card unactive">
-            <figure class="card__picture">
-              <img class="card__img" src="img/events/5.jpg" alt="абстракция">
-              <figcaption class="card__sign">
-                <span class="card__sign--place">ММАМ</span>
-                <span class="card__sign--date">с 8 апреля по 20 мая</span>
-              </figcaption>
-            </figure>
+            <img class="card__img" src="img/events/5.jpg" alt="абстракция">
+            <p class="card__sign">
+              <span class="card__sign--place">ММАМ</span>
+              <span class="card__sign--date">с 8 апреля по 20 мая</span>
+            </p>
             <div class="card__content">
-              <h2 class="title-reset card__title">
+              <h3 class="title-reset card__title">
                 Джон Винзор. Фотографии из серии «Метафора серебра»
-              </h2>
+              </h3>
               <p class="card__descr">
                 Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую
                 продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело.
@@ -1742,6 +2708,224 @@
         <button class="events__btn">
           Все события
         </button>
+      </div>
+    </section>
+    <section class="slider-section editions" id="editions">
+      <div class="container slider-section__container editions__container">
+        <h2 class="title-reset title slider-section__title editions__title">
+          Издания
+        </h2>
+        <div class="slider-section__left">
+          <fieldset class="editions__categories categories">
+            <legend class="legend categories__legend">Категории</legend>
+            <ul class="list-reset categories__list">
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Бестселлеры</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Искусство</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Архитектура</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Дизайн</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Мода</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Детям</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Художественная литература</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Публицистика</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Путеводители</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Философия</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Учебная литература</span>
+                </label>
+              </li>
+              <li class="categories__item">
+                <label class="categories__descr">
+                  <input class="categories__checkbox" type="checkbox">
+                  <span class="categories__check"></span>
+                  <span class="categories__name" tabindex="0">Журналы и газеты</span>
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="editions__prices prices">
+            <legend class="legend prices__legend">Цена</legend>
+            <p class="prices__fork">
+              <label class="prices__label">
+                <span class="prices__text prices__text--from">От</span>
+                <input class="prices__input" type="number">
+              </label>
+              <label class="prices__label">
+                <span class="prices__text prices__text--to">до</span>
+                <input class="prices__input" type="number">
+                <span class="prices__text prices__text--currency">рублей</span>
+              </label>
+            </p>
+          </fieldset>
+        </div>
+        <div class="slider-section__controls editions__control">
+          <div class="slider-section__prev navigation"></div>
+          <div class="slider-section__pagination editions__pagination"></div>
+          <div class="slider-section__next navigation"></div>
+        </div>
+        <div class="swiper-container slider-section__swiper editions__swiper">
+          <div class="swiper-wrapper">
+            <ul class="list-reset swiper-slide slider-section__slide editions__slide">
+              <li class="editions__book book" tabindex="0">
+                <figure class="book__preview">
+                  <img class="book__img" src="img/editions/1.jpg" alt="Искусство цвета">
+                  <figcaption class="book__descr">
+                    <p class="book__text">
+                      <span class="book__name">Искусство цвета</span>
+                      <span class="book__author">Иттен, Иоханнес</span>
+                    </p>
+                    <span class="book__price">620 руб</span>
+                  </figcaption>
+                </figure>
+                <a class="book__link" href="#">Заказать</a>
+              </li>
+              <li class="editions__book book" tabindex="0">
+                <figure class="book__preview">
+                  <img class="book__img" src="img/editions/2.jpg" alt="Типографика">
+                  <figcaption class="book__descr">
+                    <p class="book__text">
+                      <span class="book__name">Типографика</span>
+                      <span class="book__author">Рудер, Эмиль</span>
+                    </p>
+                    <span class="book__price">2 450 руб</span>
+                  </figcaption>
+                </figure>
+                <a class="book__link" href="#">Заказать</a>
+              </li>
+              <li class="editions__book book" tabindex="0">
+                <figure class="book__preview">
+                  <img class="book__img" src="img/editions/3.jpg" alt="Книга про буквы">
+                  <figcaption class="book__descr">
+                    <p class="book__text">
+                      <span class="book__name">Книга про буквы</span>
+                      <span class="book__author">Гордон, Юрий</span>
+                    </p>
+                    <span class="book__price">2 200 руб</span>
+                  </figcaption>
+                </figure>
+                <a class="book__link" href="#">Заказать</a>
+              </li>
+            </ul>
+            <ul class="list-reset swiper-slide slider-section__slide editions__slide">
+              <li class="editions__book book" tabindex="0">
+                <figure class="book__preview">
+                  <img class="book__img" src="img/editions/4.jpg" alt="Николай Ильин">
+                  <figcaption class="book__descr">
+                    <p class="book__text">
+                      <span class="book__name">Николай Ильин</span>
+                      <span class="book__author">Кричевский, Владимир</span>
+                    </p>
+                    <span class="book__price">1 100 руб</span>
+                  </figcaption>
+                </figure>
+                <a class="book__link" href="#">Заказать</a>
+              </li>
+              <li class="editions__book book" tabindex="0">
+                <figure class="book__preview">
+                  <img class="book__img" src="img/editions/5.jpg" alt="Модульные сетки в графическом дизайне">
+                  <figcaption class="book__descr">
+                    <p class="book__text">
+                      <span class="book__name">Модульные сетки в графическом дизайне</span>
+                      <span class="book__author">Мюллер-Брокманн, Йозеф</span>
+                    </p>
+                    <span class="book__price">1 450 руб</span>
+                  </figcaption>
+                </figure>
+                <a class="book__link" href="#">Заказать</a>
+              </li>
+              <li class="editions__book book" tabindex="0">
+                <figure class="book__preview">
+                  <img class="book__img" src="img/editions/6.jpg" alt="Эволюция графических стилей">
+                  <figcaption class="book__descr">
+                    <p class="book__text">
+                      <span class="book__name">Эволюция графических стилей</span>
+                      <span class="book__author">Хеллер, Чваст</span>
+                    </p>
+                    <span class="book__price">3 200 руб</span>
+                  </figcaption>
+                </figure>
+                <a class="book__link" href="#">Заказать</a>
+              </li>
+            </ul>
+            <ul class="list-reset swiper-slide slider-section__slide editions__slide">
+              <li class="editions__book book" tabindex="0">
+                <figure class="book__preview">
+                  <img class="book__img" src="img/editions/7.jpg" alt="Искусство и визуальное восприятие">
+                  <figcaption class="book__descr">
+                    <p class="book__text">
+                      <span class="book__name">Искусство и визуальное восприятие</span>
+                      <span class="book__author">Арнхейм, Рудольф</span>
+                    </p>
+                    <span class="book__price">2 200 руб</span>
+                  </figcaption>
+                </figure>
+                <a class="book__link" href="#">Заказать</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
