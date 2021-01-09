@@ -123,35 +123,30 @@ for (let anchor of anchors) {
     });
 }
 //свайперы
-const swiperGallery = new Swiper('.gallery__swiper', {
-    loop: true,
+const sliders = document.querySelectorAll('.swiper-container');
+
+sliders.forEach(el => {
+  const parent = el.closest('.container');
+  const mySwiper = new Swiper(el, {
+    loop: el.classList.contains('projects__swiper') ? true : false,
     navigation: {
-      nextEl: '.slider-section__next',
-      prevEl: '.slider-section__prev',
+      nextEl: parent.querySelector('.slider-section__next'),
+      prevEl: parent.querySelector('.slider-section__prev'),
     },
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    spaceBetween: 50,
+    slidesPerColumn: el.classList.contains('gallery__swiper') ? 2 : 1,
+    autoHeight: el.classList.contains('gallery__swiper') ? false : true,
     pagination: {
-      el: '.gallery__pagination',
-      type: 'custom',
-      renderCustom: function (swiper, current, total) {
-        return current + ' / ' + total;
+        el: parent.querySelector('.slider-section__pagination'),
+        type: 'custom',
+        renderCustom: function (mySwiper, current, total) {
+          return current + ' / ' + total;
       }
     },
-});
-
-const swiperEditions = new Swiper('.editions__swiper', {
-  loop: true,
-  navigation: {
-    nextEl: '.slider-section__next',
-    prevEl: '.slider-section__prev',
-  },
-  pagination: {
-    el: '.editions__pagination',
-    type: 'custom',
-    renderCustom: function (swiper, current, total) {
-      return current + ' / ' + total;
-    }
-  },
-});
+  })
+})
 
 // Выпадающий список
 const element = document.querySelector('#selectCustom');
@@ -211,18 +206,20 @@ function tabContent(content, boolean) {
     };
   })
 }
+
 const accordionHeaders = document.querySelectorAll('.article__btn');
 accordionHeaders.forEach(accordionBtn => {
   accordionBtn.onclick = () => {
+    const parent = accordionBtn.closest('div[data-target]');
     const content = accordionBtn.nextElementSibling;
     const expanded = accordionBtn.getAttribute('aria-expanded') === 'true' || false;
     if (expanded) {
       accordionBtn.setAttribute('aria-expanded', !expanded);
       } else {
-      accordionHeaders.forEach(accordionBtn => {
+      parent.querySelectorAll('.article__btn').forEach(accordionBtn => {
         accordionBtn.setAttribute('aria-expanded', expanded);
       })
-      document.querySelectorAll('.article__artists').forEach(accordionContent => {
+      parent.querySelectorAll('.article__artists').forEach(accordionContent => {
         accordionContent.setAttribute('aria-hidden', !expanded);
       })
       accordionBtn.setAttribute('aria-expanded', !expanded);
@@ -273,18 +270,91 @@ viewAll.onclick = () => {
   })
 }
 
+// Валидация формы
+//маска
+const selector = document.querySelector("input[type='tel']");
+
+const im = new Inputmask("+7 (999)-999-99-99");
+im.mask(selector);
+//валидатор
+new JustValidate('.callback', {
+    rules: {
+        name: {
+            required: true,
+            minLength: 2,
+            maxLength: 10
+        },
+        tel: {
+            required: true,
+            function: (name, value) => {
+                const phone = selector.inputmask.unmaskedvalue()
+                return Number(phone) && phone.length === 10
+            }
+        },
+    },
+    messages: {
+        name: 'Введите имя!',
+        tel: 'Введите телефон!',
+    },
+    colorWrong: 'red'
+});
+
+// Карта
+ymaps.ready(init);
+
+function init() {
+  const geolocationControl = new ymaps.control.GeolocationControl({
+    options: {
+      position: {
+        right: 10,
+        top: 400,
+      }
+    }
+  });
+  const myMap = new ymaps.Map("map", {
+          center: [55.754719, 37.625610],
+          controls: [],
+          zoom: 15
+      },
+      {
+          suppressMapOpenBlock: true
+      });
+  const myPlacemark = new ymaps.Placemark([55.758034, 37.600784], {}, {
+      iconLayout: 'default#image',
+      iconImageHref: 'img/geo.svg',
+      iconImageSize: [20, 20],
+      iconImageOffset: [0, 0]
+  })
+  myMap.geoObjects.add(myPlacemark);
+  myMap.controls.add('zoomControl', {
+    size: "small",
+    position: {
+      left: 'auto',
+      right: 10,
+      top: 320,
+    }
+  });
+  myMap.controls.add(geolocationControl);
+}
+
+//для блока контакты
+const widthView = document.documentElement.clientWidth;
+const widthWithScroll = document.documentElement.scrollWidth;
+const scroll = widthWithScroll - widthView;
+const mapView = document.getElementById('map');
+
+if (scroll > 0) {
+  scrollStr = scroll + 'px';
+  mapView.style.marginRight = `calc(50% - 50vw + ${scrollStr})`
+}
+
 //отмена фокуса при клике
 let mouseDown = false;
 
-const headerLink = document.querySelectorAll('.header__link');
-const headerEntry = document.querySelectorAll('.header__entry');
-const dropdownsLink = document.querySelectorAll('.dropdowns__link');
-const articleLink = document.querySelectorAll('.article__link');
-const articleBtn = document.querySelectorAll('.article__btn');
-const navi = document.querySelectorAll('.navigation');
-const checkbox = document.querySelectorAll('.categories__name');
+const focus = document.querySelectorAll('.focus');
 
-function focusOff(el) {
+function focusOffClickElement(element) {
+  element.forEach(el => {
     el.addEventListener('mousedown', () => mouseDown = true);
     el.addEventListener('mouseup', () => mouseDown = false);
     el.addEventListener('focus', () => {
@@ -292,20 +362,7 @@ function focusOff(el) {
         el.blur();
         }
     });
+  })
 }
 
-function removeFocusOnClick(...selectors) {
-  selectors.forEach(selector => selector.forEach(el => focusOff(el)));
-}
-
-focusOff(viewAll);
-
-removeFocusOnClick (headerLink,
-                    headerEntry,
-                    dropdownsLink,
-                    articleLink,
-                    articleBtn,
-                    navi,
-                    cardLinks,
-                    checkbox
-                    );
+focusOffClickElement(focus);
