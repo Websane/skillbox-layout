@@ -34,13 +34,13 @@ document.querySelectorAll('.dropdowns__element').forEach((el) => {
 })
 
 document.addEventListener('mouseout', (ev) => {
-    if (ev.target.className !== 'dropdowns__link dropdowns__link-isActive') {
+    if (ev.target.className !== 'dropdowns__link focus dropdowns__link-isActive') {
         removeActive()
     }
 })
 
 document.addEventListener('click', (ev) => {
-    if (ev.target.className !== 'dropdowns__link dropdowns__link-isActive') {
+    if (ev.target.className !== 'dropdowns__link focus dropdowns__link-isActive') {
         removeActive()
     }
 })
