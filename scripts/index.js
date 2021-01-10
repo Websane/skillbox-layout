@@ -337,17 +337,6 @@ function init() {
   myMap.controls.add(geolocationControl);
 }
 
-//для блока контакты
-const widthView = document.documentElement.clientWidth;
-const widthWithScroll = document.documentElement.scrollWidth;
-const scroll = widthWithScroll - widthView;
-const mapView = document.getElementById('map');
-
-if (scroll > 0) {
-  scrollStr = scroll + 'px';
-  mapView.style.marginRight = `calc(50% - 50vw + ${scrollStr})`
-}
-
 //отмена фокуса при клике
 let mouseDown = false;
 
