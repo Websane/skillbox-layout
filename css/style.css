@@ -2157,11 +2157,15 @@ input[type="number"] {
 .contacts__left {
   padding-top: 124px;
   padding-right: 122px;
-  padding-left: calc((100vw - 1600px)/2);
+  padding-left: calc((100vw - 1630px)/2);
   width: 35.5%;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--grayCA);
+}
+
+.contacts__wrapper {
+  padding-left: 15px;
 }
 
 .contacts__adress {
