@@ -126,37 +126,6 @@ for (let anchor of anchors) {
         });
     });
 }
-//свайперы
-const sliders = document.querySelectorAll('.swiper-container');
-
-sliders.forEach(el => {
-  const parent = el.closest('.container');
-  const mySwiper = new Swiper(el, {
-    loop: el.classList.contains('projects__swiper') ? true : false,
-    navigation: {
-      nextEl: parent.querySelector('.slider-section__next'),
-      prevEl: parent.querySelector('.slider-section__prev'),
-    },
-    slidesPerView: 2,
-    slidesPerGroup: 2,
-    spaceBetween: 50,
-    slidesPerColumn: el.classList.contains('gallery__swiper') ? 2 : 1,
-    autoHeight: el.classList.contains('gallery__swiper') ? false : true,
-    pagination: {
-        el: parent.querySelector('.slider-section__pagination'),
-        type: 'custom',
-        renderCustom: function (mySwiper, current, total) {
-          return current + ' / ' + total;
-      }
-    },
-    breakpoints: {
-      1365: {
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-      }
-    }
-  })
-})
 
 // Выпадающий список
 const element = document.querySelector('#selectCustom');
@@ -171,10 +140,15 @@ const choices = new Choices(element, {
 const modalContainer = document.querySelector('.gallery__modal');
 
 function clearModal() {
-  modalContainer.innerHTML = '';
+  // modalContainer.innerHTML = '';
+  const modal = modalContainer.querySelector('.modal__main');
+  if (modal) {
+    modal.remove();
+  }
   body.classList.remove('overflow');
   body.style.removeProperty('padding-right');
   modalContainer.classList.remove('flex');
+  modalContainer.children[0].classList.remove('flex');
   modalContainer.classList.remove('gallery__modal--off');
 }
 
@@ -188,8 +162,15 @@ document.querySelectorAll('.gallery__link').forEach(el => {
     if (child) {
       const modal = child.cloneNode(true);
       modalContainer.append(modal);
-      const modalChild = modalContainer.children[0];
+      const modalChild = modalContainer.children[1];
       [modalContainer, modalChild].forEach(el => el.classList.add('flex'));
+      body.classList.add('overflow');
+      const widthWindowNew = document.documentElement.clientWidth;
+      const scrollWidth = widthWindowNew - widthWindow;
+      body.style.paddingRight = scrollWidth + 'px';
+    } else {
+      const modalTemp = document.querySelector('.modal__temp');
+      [modalContainer, modalTemp].forEach(el => el.classList.add('flex'));
       body.classList.add('overflow');
       const widthWindowNew = document.documentElement.clientWidth;
       const scrollWidth = widthWindowNew - widthWindow;
@@ -237,6 +218,40 @@ accordionHeaders.forEach(accordionBtn => {
     tabContent(content, expanded);
   }
 })
+//EDITIONS
+//спойлер
+const spoilerParent = document.querySelector('.categories');
+const spoilerTitle = document.querySelector('.categories__legend');
+const spoilerItems = document.querySelectorAll('.categories__item');
+const spoilerContentItem = document.querySelectorAll('.categories__checkbox');
+
+if (document.documentElement.clientWidth < 591) {
+  spoilerTitle.tabIndex = 0;
+  spoilerTitle.setAttribute('aria-expanded', false);
+  spoilerItems.forEach(el => el.setAttribute('aria-hidden', true));
+  spoilerTitle.onclick = () => {
+    const expanded = spoilerTitle.getAttribute('aria-expanded') === 'true' || false;
+    spoilerTitle.setAttribute('aria-expanded', !expanded);
+    spoilerItems.forEach(el => el.setAttribute('aria-hidden', expanded));
+  }
+  spoilerContentItem.forEach(el => {
+    el.onclick = () => {
+      const parent = el.closest('li');
+      parent.classList.toggle('categories__item--active');
+    }
+  })
+}
+//отмена свайпера
+const editionsSwiper = document.querySelector('.editions__swiper');
+const editionsSwiperWrapper = document.querySelector('.editions__slider');
+const books = document.querySelectorAll('.book');
+if (document.documentElement.clientWidth < 591) {
+  editionsSwiper.classList.remove('swiper-container');
+  editionsSwiperWrapper.classList.remove('swiper-wrapper');
+  books.forEach(el => el.classList.remove('swiper-slide'));
+}
+
+/* ****** */
 
 //табы
 
@@ -271,12 +286,27 @@ tabs('.article__link', '.painter');
 const viewAll = document.querySelector('.events__btn');
 const cards = document.querySelectorAll('.card');
 const cardLinks = document.querySelectorAll('.card__link');
+const eventsList = document.querySelector('.events__list');
+const eventsSlider = document.querySelector('.events__swiper');
 
-viewAll.onclick = () => {
+function getAllCard(cards) {
   cards.forEach(card => {
     card.classList.remove('unactive');
     viewAll.classList.add('unactive');
   })
+}
+
+viewAll.onclick = () => { getAllCard(cards) };
+
+if (document.documentElement.clientWidth < 877) {
+  eventsList.children[2].classList.add('unactive');
+}
+
+if (document.documentElement.clientWidth < 591) {
+  getAllCard(cards);
+  eventsSlider.classList.add('swiper-container');
+  eventsList.classList.add('swiper-wrapper');
+  cards.forEach(card => { card.classList.add('swiper-slide') });
 }
 
 // Валидация формы
@@ -345,6 +375,85 @@ function init() {
   });
   myMap.controls.add(geolocationControl);
 }
+
+//свайперы
+const sliders = document.querySelectorAll('.swiper-container');
+
+sliders.forEach(el => {
+  const parent = el.closest('.container');
+  const mySwiper = new Swiper(el, {
+    loop: false,
+    observer: true,
+    observeParents: true,
+    observeSlideChildren: true,
+    navigation: {
+      nextEl: parent.querySelector('.slider-section__next'),
+      prevEl: parent.querySelector('.slider-section__prev'),
+    },
+    pagination: el.classList.contains('events__swiper') ? {
+      el: el.querySelector('.events__pagination'),
+      type: 'bullets',
+      clickable: true,
+      bulletClass: 'card__dot',
+      bulletActiveClass: 'card__dot--active',
+    } :
+    {
+      el: parent.querySelector('.slider-section__pagination'),
+      type: 'custom',
+      renderCustom: function (mySwiper, current, total) {
+        return current + ' / ' + total;
+      }
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        slidesPerColumn: 1,
+        spaceBetween: 30,
+        autoHeight: true,
+      },
+      590: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 34,
+        slidesPerColumn: el.classList.contains('gallery__swiper') ? 2 : 1,
+      },
+      1024: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: el.classList.contains('gallery__swiper') ? 34 : 50,
+        slidesPerColumn: el.classList.contains('gallery__swiper') ? 2 : 1,
+      },
+      1276: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 50,
+        slidesPerColumn: el.classList.contains('gallery__swiper') ? 2 : 1,
+        autoHeight: el.classList.contains('gallery__swiper') ? false : true,
+      },
+    }
+  })
+})
+
+//tooltips
+const tooltipButton = document.querySelectorAll('.projects__tooltip');
+
+const tooltipPosition = () => {
+  tooltipButton.forEach(el => {
+    const coord = el.getBoundingClientRect();
+    const coordLeft = coord.left;
+    if ((document.documentElement.clientWidth - coordLeft) < 140) {
+      el.children[0].style.transform = 'translate(-97%, 0)'
+    } else if (coordLeft < 140) {
+      el.children[0].style.transform = 'translate(-3%, 0)'
+    } else {
+      el.children[0].style.transform = 'translate(-50%, 0)'
+    }
+  })
+}
+
+tooltipPosition();
+window.addEventListener('resize', tooltipPosition);
 
 //отмена фокуса при клике
 let mouseDown = false;

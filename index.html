@@ -398,27 +398,29 @@
         <h2 class="title-reset title slider-section__title gallery__title">
           Галерея
         </h2>
-        <div class="slider-section__left">
-          <label class="gallery__label">
-            <span class="gallery__label--descr">Фильтровать по:</span>
-            <select class="select gallery__select" id="selectCustom" name="фильтр">
-              <option class="select__item" value="Автор">
-                Автор
-              </option>
-              <option class="select__item" value="Направление">
-                Направление
-              </option>
-              <option class="select__item" value="Техника">
-                Техника
-              </option>
-            </select>
-          </label>
-          <p class="gallery__descr">
+        <!-- <div class="slider-section__left gallery__left"> -->
+        <label class="gallery__label">
+          <span class="gallery__label--descr">Фильтровать по:</span>
+          <select class="select gallery__select" id="selectCustom" name="фильтр">
+            <option class="select__item" value="Автор">
+              Автор
+            </option>
+            <option class="select__item" value="Направление">
+              Направление
+            </option>
+            <option class="select__item" value="Техника">
+              Техника
+            </option>
+          </select>
+        </label>
+        <p class="gallery__descr">
+          <span class="gallery__text">
             Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний
             <a href="#" class="gallery__descr--link">авторизуйтесь</a>,
             либо воспользуйтесь лицензией.
-          </p>
-        </div>
+          </span>
+        </p>
+        <!-- </div> -->
         <div class="slider-section__controls gallery__controls">
           <div class="slider-section__prev navigation focus">
             <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -432,30 +434,56 @@
             </svg>
           </div>
         </div>
-        <div class="gallery__modal" role="dialog" aria-modal="true"></div>
+        <div class="gallery__modal" role="dialog" aria-modal="true">
+          <figure class="modal modal__temp">
+            <img class="modal__img" src="img/gallery/modal-temp.jpg" alt="Надя Рушева, Аполлон и Дафна">
+            <figcaption class="modal__descr">
+              <h3 class="title-reset modal__title">Надя Рушева</h3>
+              <h4 class="title-reset modal__subtitle">"Аполлон и Дафна"</h4>
+              <small class="modal__date">31 января 1952 — 6 марта 1969</small>
+              <p class="modal__text">
+                "Аполлон и Дафна"... Этот удивительный рисунок Надя создала одним из последних - в 1969 году. В
+                документальном фильме Фахри Мустафаева "Надя Рушева" знаменитый скульптор-анималист академик Василий
+                Алексеевич Ватагин, с которым девочку связывала нежная дружба, так говорил о нём:
+                "После её внезапной кончины я, потрясённый, сквозь слёзы перебирал её последнюю папку... И вдруг, как её
+                предчувствие, прозрачная, красивая композиция «Аполлон и Дафна»…".
+              </p>
+              <span class="modal__close"></span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="swiper-container slider-section__swiper gallery__swiper">
           <ul class="list-reset swiper-wrapper gallery__slider">
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/1.jpg"
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/1.jpg 350w, img/gallery/slider/mobile/1.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/1.jpg"
                   alt="Малевич, Два крестьянина на фоне полей">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/2.jpg" alt="Малевич, Уборка ржи">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/2.jpg 350w, img/gallery/slider/mobile/2.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/2.jpg" alt="Малевич, Уборка ржи">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/3.jpg" alt="Малевич, Супрематическая композиция">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/3.jpg 350w, img/gallery/slider/mobile/3.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/3.jpg"
+                  alt="Малевич, Супрематическая композиция">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/4.jpg" alt="Малевич, Женщина с граблями">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/4.jpg 350w, img/gallery/slider/mobile/4.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/4.jpg" alt="Малевич, Женщина с граблями">
               </a>
-              <figure class="modal">
+              <figure class="modal modal__main">
                 <img class="modal__img" src="img/gallery/slider/4m.jpg" alt="Малевич, Женщина с граблями">
                 <figcaption class="modal__descr">
                   <h3 class="title-reset modal__title">Казимир Малевич</h3>
@@ -472,134 +500,188 @@
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/5.jpg" alt="Малевич, Плотник">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/5.jpg 350w, img/gallery/slider/mobile/5.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/5.jpg" alt="Малевич, Плотник">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/6.jpg"
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/6.jpg 350w, img/gallery/slider/mobile/6.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/6.jpg"
                   alt="Малевич, Торс (Фигура с розовым лицом)">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/7.jpg" alt="Малевич, Супремус №58">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/7.jpg 350w, img/gallery/slider/mobile/7.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/7.jpg" alt="Малевич, Супремус №58">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/8.jpg" alt="Малевич, Супрематизм 1916">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/8.jpg 350w, img/gallery/slider/mobile/8.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/8.jpg" alt="Малевич, Супрематизм 1916">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/9.jpg" alt="Малевич, Купальщики">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/9.jpg 350w, img/gallery/slider/mobile/9.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/9.jpg" alt="Малевич, Купальщики">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/10.jpg" alt="Малевич, Супрематизм">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/10.jpg 350w, img/gallery/slider/mobile/10.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/10.jpg" alt="Малевич, Супрематизм">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/11.jpg" alt="Малевич, Девушки в поле">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/11.jpg 350w, img/gallery/slider/mobile/11.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/11.jpg" alt="Малевич, Девушки в поле">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/12.jpg" alt="Малевич, Женщина с ведрами">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/12.jpg 350w, img/gallery/slider/mobile/12.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/12.jpg" alt="Малевич, Женщина с ведрами">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/13.jpg" alt="Малевич, Супрематизм 1915">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/13.jpg 350w, img/gallery/slider/mobile/13.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/13.jpg" alt="Малевич, Супрематизм 1915">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/14.jpg" alt="Малевич, Зимний пейзаж">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/14.jpg 350w, img/gallery/slider/mobile/14.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/14.jpg" alt="Малевич, Зимний пейзаж">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/15.jpg" alt="Малевич, На сенокосе">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/15.jpg 350w, img/gallery/slider/mobile/15.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/15.jpg" alt="Малевич, На сенокосе">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/16.jpg" alt="Малевич, женская фигура">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/16.jpg 350w, img/gallery/slider/mobile/16.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/16.jpg" alt="Малевич, женская фигура">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/17.jpg" alt="Малевич, Бюро и комната">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/17.jpg 350w, img/gallery/slider/mobile/17.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/17.jpg" alt="Малевич, Бюро и комната">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/18.jpg" alt="Малевич, Спортсмены">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/18.jpg 350w, img/gallery/slider/mobile/18.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/18.jpg" alt="Малевич, Спортсмены">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/19.jpg" alt="Жан Оноре Фрагонар, Жмурки">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/19.jpg 350w, img/gallery/slider/mobile/19.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/19.jpg" alt="Жан Оноре Фрагонар, Жмурки">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/20.jpg" alt="Поль Сезанн, Купальщицы">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/20.jpg 350w, img/gallery/slider/mobile/20.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/20.jpg" alt="Поль Сезанн, Купальщицы">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/21.jpg" alt="Иван Крамской, Неизвестная">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/21.jpg 350w, img/gallery/slider/mobile/21.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/21.jpg" alt="Иван Крамской, Неизвестная">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/22.jpg" alt="Константин Маковский, Танцы">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/22.jpg 350w, img/gallery/slider/mobile/22.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/22.jpg" alt="Константин Маковский, Танцы">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/23.jpg" alt="Генрих Семирадский, Игра в кости">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/23.jpg 350w, img/gallery/slider/mobile/23.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/23.jpg"
+                  alt="Генрих Семирадский, Игра в кости">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/24.jpg" alt="Сандро Ботичелли, Весна">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/24.jpg 350w, img/gallery/slider/mobile/24.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/24.jpg" alt="Сандро Ботичелли, Весна">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/25.jpg" alt="Карл Брюллов, Итальянский полдень">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/25.jpg 350w, img/gallery/slider/mobile/25.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/25.jpg"
+                  alt="Карл Брюллов, Итальянский полдень">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/26.jpg"
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/26.jpg 350w, img/gallery/slider/mobile/26.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/26.jpg"
                   alt="Клод лоррен, Отплытие царицы Савской">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/27.jpg" alt="Ян Ван Хейсум, Натюрморт">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/27.jpg 350w, img/gallery/slider/mobile/27.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/27.jpg" alt="Ян Ван Хейсум, Натюрморт">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/28.jpg" alt="Питер Брейгель, Падение Икара">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/28.jpg 350w, img/gallery/slider/mobile/28.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/28.jpg" alt="Питер Брейгель, Падение Икара">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/29.jpg" alt="Питер Рубенс, Самсон и Далила">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/29.jpg 350w, img/gallery/slider/mobile/29.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/29.jpg" alt="Питер Рубенс, Самсон и Далила">
               </a>
             </li>
             <li class="gallery__image swiper-slide slider-section__slide gallery__slide" tabindex="0">
               <a class="gallery__link">
-                <img class="gallery__picture" src="img/gallery/slider/30.jpg" alt="Клод Верне, Отдых на берегу">
+                <img class="gallery__picture"
+                  srcset="img/gallery/slider/30.jpg 350w, img/gallery/slider/mobile/30.jpg 290w"
+                  sizes="(max-width: 320px) 290px" src="img/gallery/slider/30.jpg" alt="Клод Верне, Отдых на берегу">
               </a>
             </li>
           </ul>
@@ -2601,113 +2683,120 @@
         <h2 class="title-reset title events__title">
           События
         </h2>
-        <ul class="list-reset events__list">
-          <li class="events__item card">
-            <img class="card__img" src="img/events/1.jpg" alt="книжная гравюра">
-            <p class="card__sign">
-              <span class="card__sign--place">Музей им. Щусева</span>
-              <span class="card__sign--date">с 20 марта по 30 апреля</span>
-            </p>
-            <div class="card__content">
-              <h3 class="title-reset card__title">
-                Книжная гравюра в живом восприятии
-              </h3>
-              <p class="card__descr">
-                Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую
-                продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело.
+        <div class="events__swiper">
+          <ul class="list-reset events__list">
+            <li class="events__item card">
+              <img class="card__img" src="img/events/1.jpg" alt="книжная гравюра">
+              <p class="card__sign">
+                <span class="card__sign--place">Музей им. Щусева</span>
+                <span class="card__sign--date">с 20 марта по 30 апреля</span>
               </p>
-              <a href="#" class="card__link">
-                Подробнее
-              </a>
-            </div>
-          </li>
-          <li class="events__item card">
-            <img class="card__img" src="img/events/2.jpg" alt="витраж">
-            <p class="card__sign">
-              <span class="card__sign--place">ММОМА</span>
-              <span class="card__sign--date">24 марта 19:00</span>
-            </p>
-            <div class="card__content">
-              <h3 class="title-reset card__title">
-                «Открытая дискуссия». Дмитрий Петров и Сергей Ильин.
-              </h3>
-              <p class="card__descr">
-                Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого
-                факта: постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
-                проверки новых принципов формирования высокий уровень вовлечения представителей целевой аудитории
-                является четким доказательством простого факта: постоянный количественный рост и сфера нашей активности
-                представляет собой интересный эксперимент проверки новых принципов формирования высокий уровень
-                вовлечения представителей целевой аудитории
-                является четким доказательством простого факта: постоянный количественный рост и сфера нашей активности
-                представляет собой интересный эксперимент проверки новых принципов формирования
+              <div class="card__content">
+                <h3 class="title-reset card__title">
+                  Книжная гравюра в живом восприятии
+                </h3>
+                <p class="card__descr">
+                  Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую
+                  продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело.
+                </p>
+                <a href="#" class="card__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+            <li class="events__item card">
+              <img class="card__img" src="img/events/2.jpg" alt="витраж">
+              <p class="card__sign">
+                <span class="card__sign--place">ММОМА</span>
+                <span class="card__sign--date">24 марта 19:00</span>
               </p>
-              <a href="#" class="card__link">
-                Подробнее
-              </a>
-            </div>
-          </li>
-          <li class="events__item card">
-            <img class="card__img" src="img/events/3.jpg" alt="интерьер">
-            <p class="card__sign">
-              <span class="card__sign--place">Еврейский музей</span>
-              <span class="card__sign--date">с 31 марта по 21 апреля</span>
-            </p>
-            <div class="card__content">
-              <h3 class="title-reset card__title">
-                Выставка «Формация 2020»
-              </h3>
-              <p class="card__descr">
-                Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в
-                формировании глубокомысленных рассуждений. Также как перспективное планирование играет определяющее
-                значение для новых принципов формирования материально-технической и кадровой базы.
+              <div class="card__content">
+                <h3 class="title-reset card__title">
+                  «Открытая дискуссия». Дмитрий Петров и Сергей Ильин.
+                </h3>
+                <p class="card__descr">
+                  Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого
+                  факта: постоянный количественный рост и сфера нашей активности представляет собой интересный
+                  эксперимент
+                  проверки новых принципов формирования высокий уровень вовлечения представителей целевой аудитории
+                  является четким доказательством простого факта: постоянный количественный рост и сфера нашей
+                  активности
+                  представляет собой интересный эксперимент проверки новых принципов формирования высокий уровень
+                  вовлечения представителей целевой аудитории
+                  является четким доказательством простого факта: постоянный количественный рост и сфера нашей
+                  активности
+                  представляет собой интересный эксперимент проверки новых принципов формирования
+                </p>
+                <a href="#" class="card__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+            <li class="events__item card">
+              <img class="card__img" src="img/events/3.jpg" alt="интерьер">
+              <p class="card__sign">
+                <span class="card__sign--place">Еврейский музей</span>
+                <span class="card__sign--date">с 31 марта по 21 апреля</span>
               </p>
-              <a href="#" class="card__link">
-                Подробнее
-              </a>
-            </div>
-          </li>
-          <li class="events__item card unactive">
-            <img class="card__img" src="img/events/4.jpg" alt="абстракция">
-            <p class="card__sign">
-              <span class="card__sign--place">Третьяковка на Крымском валу</span>
-              <span class="card__sign--date">с 30 марта по 30 апреля</span>
-            </p>
-            <div class="card__content">
-              <h3 class="title-reset card__title">
-                XXIV Международная биеннале молодого искусства
-              </h3>
-              <p class="card__descr">
-                Внезапно, реплицированные с зарубежных источников, современные исследования представляют собой не что
-                иное, как квинтэссенцию победы маркетинга над разумом и должны быть рассмотрены исключительно в разрезе
-                маркетинговых и финансовых Внезапно, реплицированные с зарубежных источников, современные исследования
-                представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть
-                рассмотрены исключительно в разрезе маркетинговых и финансовых...
+              <div class="card__content">
+                <h3 class="title-reset card__title">
+                  Выставка «Формация 2020»
+                </h3>
+                <p class="card__descr">
+                  Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в
+                  формировании глубокомысленных рассуждений. Также как перспективное планирование играет определяющее
+                  значение для новых принципов формирования материально-технической и кадровой базы.
+                </p>
+                <a href="#" class="card__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+            <li class="events__item card unactive">
+              <img class="card__img" src="img/events/4.jpg" alt="абстракция">
+              <p class="card__sign">
+                <span class="card__sign--place">Третьяковка на Крымском валу</span>
+                <span class="card__sign--date">с 30 марта по 30 апреля</span>
               </p>
-              <a href="#" class="card__link">
-                Подробнее
-              </a>
-            </div>
-          </li>
-          <li class="events__item card unactive">
-            <img class="card__img" src="img/events/5.jpg" alt="абстракция">
-            <p class="card__sign">
-              <span class="card__sign--place">ММАМ</span>
-              <span class="card__sign--date">с 8 апреля по 20 мая</span>
-            </p>
-            <div class="card__content">
-              <h3 class="title-reset card__title">
-                Джон Винзор. Фотографии из серии «Метафора серебра»
-              </h3>
-              <p class="card__descr">
-                Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую
-                продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело.
+              <div class="card__content">
+                <h3 class="title-reset card__title">
+                  XXIV Международная биеннале молодого искусства
+                </h3>
+                <p class="card__descr">
+                  Внезапно, реплицированные с зарубежных источников, современные исследования представляют собой не что
+                  иное, как квинтэссенцию победы маркетинга над разумом и должны быть рассмотрены исключительно в
+                  разрезе
+                  маркетинговых и финансовых Внезапно, реплицированные с зарубежных источников, современные исследования
+                  представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть
+                  рассмотрены исключительно в разрезе маркетинговых и финансовых...
+                </p>
+                <a href="#" class="card__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+            <li class="events__item card unactive">
+              <img class="card__img" src="img/events/5.jpg" alt="абстракция">
+              <p class="card__sign">
+                <span class="card__sign--place">ММАМ</span>
+                <span class="card__sign--date">с 8 апреля по 20 мая</span>
               </p>
-              <a href="#" class="card__link">
-                Подробнее
-              </a>
-            </div>
-          </li>
-        </ul>
+              <div class="card__content">
+                <h3 class="title-reset card__title">
+                  Джон Винзор. Фотографии из серии «Метафора серебра»
+                </h3>
+                <p class="card__descr">
+                  Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую
+                  продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело.
+                </p>
+                <a href="#" class="card__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+          </ul>
+          <div class="swiper-pagination events__pagination"></div>
+        </div>
         <button class="events__btn btn focus">
           Все события
         </button>
@@ -2720,7 +2809,7 @@
         </h2>
         <div class="slider-section__left">
           <fieldset class="editions__categories categories">
-            <legend class="legend categories__legend">Категории</legend>
+            <legend class="legend categories__legend focus">Категории</legend>
             <ul class="list-reset categories__list">
               <li class="categories__item">
                 <label class="categories__descr">
@@ -2813,12 +2902,12 @@
             <p class="prices__fork">
               <label class="prices__label">
                 <span class="prices__text prices__text--from">От</span>
-                <input class="prices__input" type="number">
+                <input class="prices__input" type="number" value="50">
               </label>
               <label class="prices__label">
                 <span class="prices__text prices__text--to">до</span>
-                <input class="prices__input" type="number">
-                <span class="prices__text prices__text--currency">рублей</span>
+                <input class="prices__input" type="text" value="25 000">
+                <span class="prices__text prices__text--currency">руб.</span>
               </label>
             </p>
           </fieldset>
@@ -2840,7 +2929,8 @@
           <ul class="list-reset swiper-wrapper editions__slider">
             <li class="swiper-slide slider-section__slide editions__slide book">
               <figure class="book__preview">
-                <img class="book__img" src="img/editions/1.jpg" alt="Искусство цвета">
+                <img class="book__img" srcset="img/editions/1.jpg 350w, img/editions/mobile/1.jpg 130w"
+                  sizes="(max-width: 320px) 130px" src="img/editions/1.jpg" alt="Искусство цвета">
                 <figcaption class="book__descr">
                   <p class="book__text">
                     <span class="book__name">Искусство цвета</span>
@@ -2853,7 +2943,8 @@
             </li>
             <li class="swiper-slide slider-section__slide editions__slide book">
               <figure class="book__preview">
-                <img class="book__img" src="img/editions/2.jpg" alt="Типографика">
+                <img class="book__img" srcset="img/editions/2.jpg 350w, img/editions/mobile/2.jpg 130w"
+                  sizes="(max-width: 320px) 130px" src="img/editions/2.jpg" alt="Типографика">
                 <figcaption class="book__descr">
                   <p class="book__text">
                     <span class="book__name">Типографика</span>
@@ -2866,7 +2957,8 @@
             </li>
             <li class="swiper-slide slider-section__slide editions__slide book">
               <figure class="book__preview">
-                <img class="book__img" src="img/editions/3.jpg" alt="Книга про буквы">
+                <img class="book__img" srcset="img/editions/3.jpg 350w, img/editions/mobile/3.jpg 130w"
+                  sizes="(max-width: 320px) 130px" src="img/editions/3.jpg" alt="Книга про буквы">
                 <figcaption class="book__descr">
                   <p class="book__text">
                     <span class="book__name">Книга про буквы</span>
@@ -2879,7 +2971,8 @@
             </li>
             <li class="swiper-slide slider-section__slide editions__slide book">
               <figure class="book__preview">
-                <img class="book__img" src="img/editions/4.jpg" alt="Николай Ильин">
+                <img class="book__img" srcset="img/editions/4.jpg 350w, img/editions/mobile/4.jpg 130w"
+                  sizes="(max-width: 320px) 130px" src="img/editions/4.jpg" alt="Николай Ильин">
                 <figcaption class="book__descr">
                   <p class="book__text">
                     <span class="book__name">Николай Ильин</span>
@@ -2892,7 +2985,8 @@
             </li>
             <li class="swiper-slide slider-section__slide editions__slide book">
               <figure class="book__preview">
-                <img class="book__img" src="img/editions/5.jpg" alt="Модульные сетки в графическом дизайне">
+                <img class="book__img" srcset="img/editions/5.jpg 350w, img/editions/mobile/5.jpg 130w"
+                  sizes="(max-width: 320px) 130px" src="img/editions/5.jpg" alt="Модульные сетки в графическом дизайне">
                 <figcaption class="book__descr">
                   <p class="book__text">
                     <span class="book__name">Модульные сетки в графическом дизайне</span>
@@ -2905,7 +2999,8 @@
             </li>
             <li class="swiper-slide slider-section__slide editions__slide book">
               <figure class="book__preview">
-                <img class="book__img" src="img/editions/6.jpg" alt="Эволюция графических стилей">
+                <img class="book__img" srcset="img/editions/6.jpg 350w, img/editions/mobile/6.jpg 130w"
+                  sizes="(max-width: 320px) 130px" src="img/editions/6.jpg" alt="Эволюция графических стилей">
                 <figcaption class="book__descr">
                   <p class="book__text">
                     <span class="book__name">Эволюция графических стилей</span>
@@ -2918,7 +3013,8 @@
             </li>
             <li class="swiper-slide slider-section__slide editions__slide book">
               <figure class="book__preview">
-                <img class="book__img" src="img/editions/7.jpg" alt="Искусство и визуальное восприятие">
+                <img class="book__img" srcset="img/editions/7.jpg 350w, img/editions/mobile/7.jpg 130w"
+                  sizes="(max-width: 320px) 130px" src="img/editions/7.jpg" alt="Искусство и визуальное восприятие">
                 <figcaption class="book__descr">
                   <p class="book__text">
                     <span class="book__name">Искусство и визуальное восприятие</span>
@@ -2942,7 +3038,7 @@
           Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно
           фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не
           уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности.
-          Прежде всего, постоянное информационно&#8209;пропагандистское
+          Прежде всего, постоянное информационно-пропагандистское
           <span class="projects__tooltip" tabindex="0">
             <span class="tooltip">
               Пример современных тенденций - современная методология разработки
@@ -3031,12 +3127,20 @@
         </h2>
       </div>
       <div class="contacts__content">
+        <div class="contacts__mobile">
+          <p class="contacts__adress">
+            Шоурум №2
+            <span class="contacts__adress--small">
+              Покровский бульвар, дом 24, строение 3
+            </span>
+          </p>
+        </div>
         <div class="contacts__left">
           <div class="contacts__wrapper">
             <p class="contacts__adress">
-              Шоурум №4
+              Шоурум №2
               <span class="contacts__adress--small">
-                Леонтьевский переулок, дом 5, строение 1
+                Покровский бульвар, дом 24, строение 3
               </span>
             </p>
             <form class="contacts__form callback">
