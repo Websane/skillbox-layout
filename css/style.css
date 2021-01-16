@@ -1950,7 +1950,7 @@ input[type="number"] {
   padding: 8px 11px 12px 11px;
   display: block;
   width: max-content;
-  max-width: 250px;
+  max-width: 264px;
   background-color: var(--grayCA);
   color: var(--white);
   font-weight: 600;
@@ -3440,6 +3440,10 @@ input[type="number"] {
   .projects__link {
     height: 63px;
     background-size: 56%;
+  }
+
+  .tooltip {
+    max-width: 220px;
   }
 
   /*CONTACTS*/
