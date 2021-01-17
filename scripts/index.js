@@ -351,7 +351,7 @@ function init() {
     }
   });
   const myMap = new ymaps.Map("map", {
-          center: [55.754719, 37.625610],
+          center: [55.758034, 37.600784],
           controls: [],
           zoom: 15
       },
@@ -374,6 +374,7 @@ function init() {
     }
   });
   myMap.controls.add(geolocationControl);
+  myMap.behaviors.disable('drag');
 }
 
 //свайперы

@@ -1975,6 +1975,7 @@ input[type="number"] {
   border-color: #cacaca transparent transparent transparent;
   opacity: 0;
   visibility: hidden;
+  transition: opacity .2s linear, visibility .2s linear;
 }
 
 .projects__tooltip:hover .tooltip,
@@ -3439,7 +3440,19 @@ input[type="number"] {
 
   .projects__link {
     height: 63px;
-    background-size: 56%;
+    background-size: 38%;
+  }
+
+  .projects__item:nth-child(n+4) .projects__link {
+    background-size: 16%;
+  }
+
+  .projects__item:nth-child(n+6) .projects__link {
+    background-size: 32%;
+  }
+
+  .projects__item:nth-child(n+8) .projects__link {
+    background-size: 23%;
   }
 
   .tooltip {
@@ -3559,6 +3572,22 @@ input[type="number"] {
 
   .book__img {
     max-height: 143px;
+  }
+
+  .projects__link {
+    background-size: 67%;
+  }
+
+  .projects__item:nth-child(n+4) .projects__link {
+    background-size: 30%;
+  }
+
+  .projects__item:nth-child(n+6) .projects__link {
+    background-size: 48%;
+  }
+
+  .projects__item:nth-child(n+8) .projects__link {
+    background-size: 44%;
   }
 }
 
