@@ -1,11 +1,11 @@
 //dropdown
 function removeActive() {
-    document.querySelectorAll('.dropdowns__isActive').forEach((el) => {
-        el.classList.remove('dropdowns__isActive')
-    })
-    document.querySelectorAll('.dropdowns__link-isActive').forEach((el) => {
-        el.classList.remove('dropdowns__link-isActive');
-    })
+  document.querySelectorAll('.dropdowns__isActive').forEach((el) => {
+    el.classList.remove('dropdowns__isActive')
+  })
+  document.querySelectorAll('.dropdowns__link-isActive').forEach((el) => {
+    el.classList.remove('dropdowns__link-isActive');
+  })
 }
 
 function addActive(link, menu) {
@@ -26,7 +26,7 @@ document.querySelectorAll('.dropdowns__element').forEach((el) => {
     }
     removeActive();
     addActive(link, menu);
-    }
+  }
   )
   if (canHover) {
     el.addEventListener('mouseover', () => { addActive(link, menu) });
@@ -34,20 +34,20 @@ document.querySelectorAll('.dropdowns__element').forEach((el) => {
 })
 
 document.addEventListener('mouseout', (ev) => {
-    if (ev.target.className !== 'dropdowns__link focus dropdowns__link-isActive') {
-        removeActive()
-    }
+  if (ev.target.className !== 'dropdowns__link focus dropdowns__link-isActive') {
+    removeActive()
+  }
 })
 
 document.addEventListener('click', (ev) => {
-    if (ev.target.className !== 'dropdowns__link focus dropdowns__link-isActive') {
-        removeActive()
-    }
+  if (ev.target.className !== 'dropdowns__link focus dropdowns__link-isActive') {
+    removeActive()
+  }
 })
 
 //кастомный скролл
 document.querySelectorAll('.dropdowns__menu').forEach((el) => {
-    new SimpleBar(el, { autoHide: false })
+  new SimpleBar(el, { autoHide: false })
 });
 
 // //бургер
@@ -59,18 +59,18 @@ const list = document.querySelector('.header__list');
 const entry = document.querySelector('.header__entry');
 
 const open = () => {
-    burger.classList.toggle('burger__btn-active');
-    [list, entry].forEach(el => el.classList.toggle('active'));
-    menu.classList.toggle('burger__menu-on');
-    body.classList.toggle('overflow');
+  burger.classList.toggle('burger__btn-active');
+  [list, entry].forEach(el => el.classList.toggle('active'));
+  menu.classList.toggle('burger__menu-on');
+  body.classList.toggle('overflow');
 }
 
 const close = () => {
-    headerLink.forEach(el => el.tabIndex = -1);
-    burger.classList.remove('burger__btn-active');
-    [list, entry].forEach(el => el.classList.remove('active'));
-    menu.classList.remove('burger__menu-on');
-    body.classList.remove('overflow');
+  headerLink.forEach(el => el.tabIndex = -1);
+  burger.classList.remove('burger__btn-active');
+  [list, entry].forEach(el => el.classList.remove('active'));
+  menu.classList.remove('burger__menu-on');
+  body.classList.remove('overflow');
 }
 
 burger.addEventListener('click', () => open());
@@ -86,53 +86,53 @@ const logo = document.querySelector('.header__logo');
 const closeButton = document.createElement('button');
 
 buttonSearch.addEventListener('click', (ev) => {
-    if (!(labelSearch.classList.contains('active'))) {
-      ev.preventDefault();
-    }
-    if (document.documentElement.clientWidth < 1367) {
-        labelSearch.classList.toggle('active');
-    }
-    if (document.documentElement.clientWidth < 769) {
-        container.append(closeButton);
-        closeButton.classList.toggle('header__search--close');
-        [burgerBtn, logo].forEach(el => el.classList.toggle('unactive'));
-        [labelSearch, search].forEach(el => el.classList.toggle('width-full'));
-    }
-    if (document.documentElement.clientWidth < 591) {
-      search.classList.toggle('padding-search');
-    }
+  if (!(labelSearch.classList.contains('active'))) {
+    ev.preventDefault();
+  }
+  if (document.documentElement.clientWidth < 1367) {
+    labelSearch.classList.toggle('active');
+  }
+  if (document.documentElement.clientWidth < 769) {
+    container.append(closeButton);
+    closeButton.classList.toggle('header__search--close');
+    [burgerBtn, logo].forEach(el => el.classList.toggle('unactive'));
+    [labelSearch, search].forEach(el => el.classList.toggle('width-full'));
+  }
+  if (document.documentElement.clientWidth < 591) {
+    search.classList.toggle('padding-search');
+  }
 })
 closeButton.addEventListener('click', () => {
-    [labelSearch, search].forEach(el => el.classList.remove('width-full'));
-    labelSearch.classList.remove('active');
-    closeButton.classList.remove('header__search--close');
-    search.classList.remove('padding-search');
-    closeButton.remove();
-    [burgerBtn, logo].forEach(el => el.classList.remove('unactive'));
+  [labelSearch, search].forEach(el => el.classList.remove('width-full'));
+  labelSearch.classList.remove('active');
+  closeButton.classList.remove('header__search--close');
+  search.classList.remove('padding-search');
+  closeButton.remove();
+  [burgerBtn, logo].forEach(el => el.classList.remove('unactive'));
 })
 
 // //плавная прокрутка
 const anchors = document.querySelectorAll('.header__link')
 
 for (let anchor of anchors) {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault()
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault()
 
-        const blockID = anchor.getAttribute('href').substr(1);
+    const blockID = anchor.getAttribute('href').substr(1);
 
-        document.getElementById(blockID).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+    document.getElementById(blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     });
+  });
 }
 
 // Выпадающий список
 const element = document.querySelector('#selectCustom');
 const choices = new Choices(element, {
-    searchEnabled: false,
-    itemSelectText: '',
-    shouldSort: false,
+  searchEnabled: false,
+  itemSelectText: '',
+  shouldSort: false,
 });
 
 //модальное окно
@@ -190,7 +190,7 @@ document.addEventListener('click', (ev) => {
 function tabContent(content, boolean) {
   content.querySelectorAll('.article__link').forEach(el => {
     if (boolean) {
-    el.removeAttribute('tabindex');
+      el.removeAttribute('tabindex');
     } else {
       el.tabIndex = 0
     };
@@ -205,7 +205,7 @@ accordionHeaders.forEach(accordionBtn => {
     const expanded = accordionBtn.getAttribute('aria-expanded') === 'true' || false;
     if (expanded) {
       accordionBtn.setAttribute('aria-expanded', !expanded);
-      } else {
+    } else {
       parent.querySelectorAll('.article__btn').forEach(accordionBtn => {
         accordionBtn.setAttribute('aria-expanded', expanded);
       })
@@ -258,7 +258,7 @@ if (document.documentElement.clientWidth < 591) {
 function tabs(button, content) {
   document.querySelectorAll(button).forEach(el => {
     el.addEventListener('click', ev => {
-      if(el.className === 'country__btn') {
+      if (el.className === 'country__btn') {
         document.querySelectorAll('.country__btn').forEach(el =>
           el.classList.remove('country__btn--active')
         );
@@ -317,25 +317,25 @@ const im = new Inputmask("+7 (999)-999-99-99");
 im.mask(selector);
 //валидатор
 new JustValidate('.callback', {
-    rules: {
-        name: {
-            required: true,
-            minLength: 2,
-            maxLength: 10
-        },
-        tel: {
-            required: true,
-            function: (name, value) => {
-                const phone = selector.inputmask.unmaskedvalue()
-                return Number(phone) && phone.length === 10
-            }
-        },
+  rules: {
+    name: {
+      required: true,
+      minLength: 2,
+      maxLength: 10
     },
-    messages: {
-        name: 'Введите имя!',
-        tel: 'Введите телефон!',
+    tel: {
+      required: true,
+      function: (name, value) => {
+        const phone = selector.inputmask.unmaskedvalue()
+        return Number(phone) && phone.length === 10
+      }
     },
-    colorWrong: 'red'
+  },
+  messages: {
+    name: 'Введите имя!',
+    tel: 'Введите телефон!',
+  },
+  colorWrong: 'red'
 });
 
 // Карта
@@ -351,18 +351,18 @@ function init() {
     }
   });
   const myMap = new ymaps.Map("map", {
-          center: [55.758034, 37.600784],
-          controls: [],
-          zoom: 15
-      },
-      {
-          suppressMapOpenBlock: true
-      });
+    center: [55.758034, 37.600784],
+    controls: [],
+    zoom: 15
+  },
+    {
+      suppressMapOpenBlock: true
+    });
   const myPlacemark = new ymaps.Placemark([55.758034, 37.600784], {}, {
-      iconLayout: 'default#image',
-      iconImageHref: 'img/geo.svg',
-      iconImageSize: [20, 20],
-      iconImageOffset: [0, 0]
+    iconLayout: 'default#image',
+    iconImageHref: 'img/geo.svg',
+    iconImageSize: [20, 20],
+    iconImageOffset: [0, 0]
   })
   myMap.geoObjects.add(myPlacemark);
   myMap.controls.add('zoomControl', {
@@ -398,13 +398,13 @@ sliders.forEach(el => {
       bulletClass: 'card__dot',
       bulletActiveClass: 'card__dot--active',
     } :
-    {
-      el: parent.querySelector('.slider-section__pagination'),
-      type: 'custom',
-      renderCustom: function (mySwiper, current, total) {
-        return current + ' / ' + total;
-      }
-    },
+      {
+        el: parent.querySelector('.slider-section__pagination'),
+        type: 'custom',
+        renderCustom: function (mySwiper, current, total) {
+          return current + ' / ' + total;
+        }
+      },
     breakpoints: {
       320: {
         slidesPerView: 1,
@@ -466,9 +466,9 @@ function focusOffClickElement(element) {
     el.addEventListener('mousedown', () => mouseDown = true);
     el.addEventListener('mouseup', () => mouseDown = false);
     el.addEventListener('focus', () => {
-        if (mouseDown) {
+      if (mouseDown) {
         el.blur();
-        }
+      }
     });
   })
 }
