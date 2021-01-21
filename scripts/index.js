@@ -1,3 +1,4 @@
+"use strict"
 //dropdown
 function removeActive() {
   document.querySelectorAll('.dropdowns__isActive').forEach((el) => {
@@ -316,6 +317,14 @@ const selector = document.querySelector("input[type='tel']");
 const im = new Inputmask("+7 (999)-999-99-99");
 im.mask(selector);
 //валидатор
+const callback = document.querySelector('.callback');
+const callbackBtn = document.querySelector('.callback__btn');
+
+function clearForm() {
+  callback.classList.remove('sending');
+  callbackBtn.removeAttribute('disabled');
+  callback.reset();
+}
 new JustValidate('.callback', {
   rules: {
     name: {
@@ -335,7 +344,26 @@ new JustValidate('.callback', {
     name: 'Введите имя!',
     tel: 'Введите телефон!',
   },
-  colorWrong: 'red'
+  colorWrong: 'red',
+  focusWrongField: true,
+  submitHandler: function (form, values, ajax) {
+    callback.classList.add('sending');
+    callbackBtn.setAttribute('disabled', 'disabled');
+    ajax({
+        url: 'sendmail.php',
+        method: 'POST',
+        data: values,
+        async: true,
+        callback: function(response) {
+          alert(`Спасибо, ${values.name}, мы обязательно свяжемся с Вами`);
+          clearForm();
+        },
+        error: function (response) {
+          alert('Ошибка! \nResponse from server:' + response);
+          clearForm();
+        },
+    });
+  }
 });
 
 // Карта
