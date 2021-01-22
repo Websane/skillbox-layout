@@ -11,7 +11,7 @@ $mail->setLanguage('ru', 'phpmailer/language/');
 $mail->IsHTML(true);
 
 //от кого письмо
-$mail->setFrom('from@example.com', 'Mailer');
+$mail->setFrom('adm@' . $_SERVER['HTTP_HOST'], 'Mailer');
 //кому отправить
 $mail->addAddress('websanego@gmail.com');
 //тема письма

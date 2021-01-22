@@ -9,6 +9,12 @@ function removeActive() {
   })
 }
 
+const removeActiveTarget = (ev) => {
+  if (ev.target.className !== 'dropdowns__link focus dropdowns__link-isActive') {
+    removeActive();
+  }
+}
+
 function addActive(link, menu) {
   link.classList.add('dropdowns__link-isActive');
   menu.classList.add('dropdowns__isActive');
@@ -34,17 +40,8 @@ document.querySelectorAll('.dropdowns__element').forEach((el) => {
   }
 })
 
-document.addEventListener('mouseout', (ev) => {
-  if (ev.target.className !== 'dropdowns__link focus dropdowns__link-isActive') {
-    removeActive()
-  }
-})
-
-document.addEventListener('click', (ev) => {
-  if (ev.target.className !== 'dropdowns__link focus dropdowns__link-isActive') {
-    removeActive()
-  }
-})
+document.addEventListener('mouseout', removeActiveTarget)
+document.addEventListener('click',  removeActiveTarget)
 
 //кастомный скролл
 document.querySelectorAll('.dropdowns__menu').forEach((el) => {
@@ -137,7 +134,6 @@ const choices = new Choices(element, {
 });
 
 //модальное окно
-
 const modalContainer = document.querySelector('.gallery__modal');
 
 function clearModal() {
@@ -153,6 +149,14 @@ function clearModal() {
   modalContainer.classList.remove('gallery__modal--off');
 }
 
+function viewModal(modal, widthWindow) {
+  [modalContainer, modal].forEach(el => el.classList.add('flex'));
+  body.classList.add('overflow');
+  const widthWindowNew = document.documentElement.clientWidth;
+  const scrollWidth = widthWindowNew - widthWindow;
+  body.style.paddingRight = scrollWidth + 'px';
+}
+
 document.querySelectorAll('.gallery__link').forEach(el => {
   el.addEventListener('click', (ev) => {
     ev.preventDefault();
@@ -164,18 +168,10 @@ document.querySelectorAll('.gallery__link').forEach(el => {
       const modal = child.cloneNode(true);
       modalContainer.append(modal);
       const modalChild = modalContainer.children[1];
-      [modalContainer, modalChild].forEach(el => el.classList.add('flex'));
-      body.classList.add('overflow');
-      const widthWindowNew = document.documentElement.clientWidth;
-      const scrollWidth = widthWindowNew - widthWindow;
-      body.style.paddingRight = scrollWidth + 'px';
+      viewModal(modalChild, widthWindow);
     } else {
       const modalTemp = document.querySelector('.modal__temp');
-      [modalContainer, modalTemp].forEach(el => el.classList.add('flex'));
-      body.classList.add('overflow');
-      const widthWindowNew = document.documentElement.clientWidth;
-      const scrollWidth = widthWindowNew - widthWindow;
-      body.style.paddingRight = scrollWidth + 'px';
+      viewModal(modalTemp, widthWindow);
     }
   })
 })
@@ -219,7 +215,7 @@ accordionHeaders.forEach(accordionBtn => {
     tabContent(content, expanded);
   }
 })
-//EDITIONS
+
 //спойлер
 const spoilerParent = document.querySelector('.categories');
 const spoilerTitle = document.querySelector('.categories__legend');
@@ -252,10 +248,7 @@ if (document.documentElement.clientWidth < 591) {
   books.forEach(el => el.classList.remove('swiper-slide'));
 }
 
-/* ****** */
-
 //табы
-
 function tabs(button, content) {
   document.querySelectorAll(button).forEach(el => {
     el.addEventListener('click', ev => {
