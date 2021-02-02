@@ -1209,7 +1209,7 @@ img {
 
 .choices[data-type*="select-one"]:after {
   right: 14px;
-  top: 48%;
+  top: 45%;
   margin: 0;
   height: 7px;
   width: 12px;
@@ -1218,6 +1218,7 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  transition: transform .15s linear;
 }
 
 .choices[data-type*="select-one"].is-open:after {
@@ -1225,6 +1226,7 @@ img {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+  transition: transform .15s linear;
 }
 
 .choices__list--dropdown {
