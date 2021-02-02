@@ -2335,7 +2335,20 @@ input[type="number"] {
 
 .callback__label {
   position: relative;
+  margin-bottom: 23px;
   width: 100%;
+}
+
+.callback__label::before {
+  content: '';
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border: 3px solid var(--purpleA4);
+  border-radius: 100px;
 }
 
 .callback__descr {
@@ -2346,7 +2359,6 @@ input[type="number"] {
 }
 
 .callback__input {
-  margin-bottom: 23px;
   padding: 3px 24px;
   width: 100%;
   border: 1px solid var(--black33);
@@ -2355,8 +2367,11 @@ input[type="number"] {
 }
 
 .callback__input:focus {
-  outline: 2px solid var(--purpleA4);
-  outline-offset: 4px;
+  outline: none;
+}
+
+.callback__label:focus-within::before {
+  display: block;
 }
 
 .js-validate-error-label {
